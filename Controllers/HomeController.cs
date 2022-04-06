@@ -16,7 +16,6 @@ namespace GeekTime.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            int a = 5;
         }
 
         public IActionResult Index()
