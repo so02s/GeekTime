@@ -1,0 +1,39 @@
+﻿@using Geektime.Models
+@model IEnumerable<Admin>
+    @{
+    Layout = null;
+    }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>AdminPage</title>
+    </head>
+    <body>
+        <h1>Админы гиктайма:</h1>
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>Имя</th>
+                <th>Ивент</th>
+                <th>Фотка</th>
+            </tr>
+            @{
+            foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Events</td>
+                <td>@item.Image</td>
+            </tr>
+            }
+            }
+        </table>
+        @using (Html.BeginForm("CreateAdmin", "Admin"))
+        {
+        <div>
+            <input type="submit" value="Добавить админа" />
+        </div>
+        }
+    </body>
+</html>
+
