@@ -1,0 +1,238 @@
+<!--Игры-->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Антикафе GeekTime | Каталог игр</title>
+		
+		<style>
+			@font-face { 
+				font-family: "Sensei Medium";
+				src: url("fonts/sensei-medium.eot"); 				/* IE9 Compat Modes */
+				src: url("fonts/sensei-medium.eot?#iefix") format("embedded-opentype"), 	/* IE6-IE8 */
+				url("fonts/sensei-medium.otf") format("opentype"), 	/* Open Type Font */
+				url("fonts/sensei-medium.svg") format("svg"), 		/* Legacy iOS */
+				url("fonts/sensei-medium.ttf") format("truetype"), 	/* Safari, Android, iOS */
+				url("fonts/sensei-medium.woff") format("woff"), 	/* Modern Browsers */
+				url("fonts/sensei-medium.woff2") format("woff2"); 	/* Modern Browsers */
+				}
+		
+			body {
+				background: #fffdd0;
+				padding: 150px;
+				}
+
+			#menu__toggle {
+				opacity: 0;
+			}
+
+			#menu__toggle:checked ~ .menu__btn > span {
+				transform: rotate(45deg);
+			}
+			
+			#menu__toggle:checked ~ .menu__btn > span::before {
+				top: 0;
+				transform: rotate(0);
+				}
+				
+			#menu__toggle:checked ~ .menu__btn > span::after {
+				top: 0;
+				transform: rotate(90deg);
+			}
+
+			#menu__toggle:checked ~ .menu__box {
+				visibility: visible;
+				left: 0;
+			}		
+		
+			.menu__btn {
+				display: flex;
+				align-items: center;
+				position: fixed;
+				top: 20px;
+				left: 20px;
+				width: 50px;
+				height: 10%;
+				cursor: pointer;
+				z-index: 2;
+			}
+		
+			.menu__btn > span,
+			.menu__btn > span::before,
+			.menu__btn > span::after {
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				background-color: #ffffff;
+				transition-duration: .25s;
+			}
+			
+			.menu__btn > span::before {
+				content: '';
+				top: -8px;
+			}
+			
+			.menu__btn > span::after {
+				content: '';
+				top: 8px;
+			}
+			
+			.menu__box {
+				display: block;
+				position: fixed;
+				visibility: hidden;
+				top: 0;
+				left: -100%;
+				z-index: 1;
+				width: 30%;
+				height: 100%;
+				margin: 0;
+				padding: 150px 0;
+				list-style: none;
+				background-color: #ffb400;
+				box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+				transition-duration: .25s;
+			}
+			
+			.menu__item {
+				display: block;
+				padding: 12px 24px;
+				color: #fffdd0;
+				text-align: center;
+				font-family: "Sensei Medium";
+				font-size: 40px;
+				font-weight: 600;
+				text-decoration: none;
+				transition-duration: .25s;
+			}
+			
+			.menu__item:hover {
+				background-color: #ff4f00;
+			}
+
+			header {
+				top: 0; left: 0;
+				align: center; 
+				text-align: center;
+				vertical-align: middle;
+				font-size: 110px;
+				font-family: "Sensei Medium", "Trebuchet MS";
+				color: #ffffff;	
+				text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+				position: fixed;  
+				z-index: 1; 
+				width: 100%;   
+				height: 150px;   
+				background-color: #ffb400; 
+			}	
+			
+			footer {
+				padding: 20px; 
+				color: #ffffff;
+				text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+				background-color: #ff4f00; 
+				width: 100%; 
+				}
+				
+			h2 {
+				text-align: center;
+				font-size: 60px;
+				font-family: "Sensei Medium";
+				line-height: 20%;
+				background: #ffb400;
+				}
+				
+			h3 { 
+				text-align: center;
+				font-size: 150px;
+				font-family: "Sensei Medium";
+				line-height: 0%; 
+				}
+				
+			h4 { 
+				text-align: center;
+				font-size: 120px;
+				font-family: "Sensei Medium";
+				line-height: 30%;
+				background: #ffb400;
+				}					
+			
+			p {
+				text-align: center;
+				font-size: 30px;
+				font-family: "Sensei Medium";
+				line-height: 100%;
+				}
+
+			a {
+				color: #ffffff;
+				text-decoration: none;
+				}
+				
+			.hr-dashed {
+				padding: 0;
+				height: 0;
+				border: none;
+				border-top: 5px dashed #ffb400;
+				}
+				
+			.hr1-dashed {
+				padding: 0;
+				height: 0;
+				border: none;
+				border-top: 5px dashed #ff4f00;
+				}
+				
+			img {
+				border-radius: 25px; 
+				}	
+				
+		</style>
+	</head>
+
+	<body>
+
+		<header><a href="file:///C:/GT/main.html">GeekTime</a></header>
+		
+		<div class="hamburger-menu">
+			<input id="menu__toggle" type="checkbox" />
+			<label class="menu__btn" for="menu__toggle">
+			  <span></span>
+			</label>
+
+			<ul class="menu__box">
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/main.html">Главная</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/events.html">Мероприятия</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/rooms.html">Интерьер</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/price.html">Тарифы</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/games.html">Каталог игр</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/comics.html">Каталог комиксов</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/admins.html">Наша команда</a></li>
+				<hr class="hr1-dashed">
+			</ul>
+		</div>
+	
+		<hr class="hr-dashed">
+		<h4>Каталог игр</h4>
+		<hr class="hr-dashed">
+		
+	    <footer>
+		<hr width = "100%" size = "5" color = ff4f00 align = center>
+		<p>GeekTime</p>
+		<p>Время работы: пн-вс, круглосуточно</p>
+		<p>Москва, Новослободская ул., 36/1</p>
+		<p>+7 (499) 286-90-45</p>
+		</footer>		
+			
+	</body>
+</html>
+
