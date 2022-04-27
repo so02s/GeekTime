@@ -1,0 +1,370 @@
+<!--главная страница-->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+				
+		<title>Антикафе GeekTime</title>
+		
+		<link rel="icon" href="pics/icocat.png" type="image/x-icon">
+		
+		<style>
+			
+			@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Underdog&display=swap');	
+			
+			body {
+				background: #fffdd0;
+				padding: 150px;
+				}
+
+			#menu__toggle {
+				opacity: 0;
+			}
+
+			#menu__toggle:checked ~ .menu__btn > span {
+				transform: rotate(45deg);
+			}
+			
+			#menu__toggle:checked ~ .menu__btn > span::before {
+				top: 0;
+				transform: rotate(0);
+				}
+				
+			#menu__toggle:checked ~ .menu__btn > span::after {
+				top: 0;
+				transform: rotate(90deg);
+			}
+
+			#menu__toggle:checked ~ .menu__box {
+				visibility: visible;
+				left: 0;
+			}		
+		
+			.menu__btn {
+				display: flex;
+				align-items: center;
+				position: fixed;
+				top: 20px;
+				left: 20px;
+				width: 50px;
+				height: 10%;
+				cursor: pointer;
+				z-index: 2;
+			}
+		
+			.menu__btn > span,
+			.menu__btn > span::before,
+			.menu__btn > span::after {
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				background-color: #ffffff;
+				transition-duration: .25s;
+			}
+			
+			.menu__btn > span::before {
+				content: '';
+				top: -8px;
+			}
+			
+			.menu__btn > span::after {
+				content: '';
+				top: 8px;
+			}
+			
+			.menu__box {
+				display: block;
+				position: fixed;
+				visibility: hidden;
+				overflow: auto;
+				top: 0;
+				left: -100%;
+				z-index: 1;
+				width: 30%;
+				height: 100%;
+				margin: 0;
+				padding: 150px 0;
+				list-style: none;
+				background-color: #ffb400;
+				box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+				transition-duration: .25s;
+			}
+			
+			.menu__item {
+				display: block;
+				padding: 12px 24px;
+				color: #fffdd0;
+				text-align: center;
+				font-family: 'Underdog', cursive;
+				font-size: 40px;
+				font-weight: 600;
+				text-decoration: none;
+				transition-duration: .25s;
+			}
+			
+			.menu__item:hover {
+				background-color: #ff4f00;
+			}
+
+			header {
+				top: 0; left: 0;
+				align: center; 
+				text-align: center;
+				vertical-align: middle;
+				font-size: 110px;
+				font-family: 'Underdog', cursive;
+				color: #ffffff;	
+				text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+				position: fixed;  
+				z-index: 1; 
+				width: 100%;   
+				height: 150px;   
+				background-color: #ffb400; 
+			}	
+			
+			footer {
+				padding: 20px 0px; 
+				color: #ffffff;
+				text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+				background-color: #ff4f00; 
+				width: 100%; 
+				height: 300px;
+				}
+				
+			table {
+				width: 100%; 
+				height: 200%; 
+				border-collapse: collapse;	
+				color: #000000;
+				}
+			
+			tr { 
+				height: 600px;
+				}
+			
+			td { 
+				text-align: center;
+				vertical-align: middle;
+				width: 50%; 				
+				}
+				
+			h2 {
+				text-align: center;
+				font-size: 60px;
+				font-family: 'Underdog', cursive;
+				line-height: 90%;
+				position: relative;
+				}
+			
+			h2::before {
+				content: '';
+				position: absolute;
+				bottom: 37%; left: 0;
+				width: 100%; height: 26%;
+				background-color: #ffb400;
+				z-index: -1;
+				}
+				
+			h3 { 
+				position: relative;
+				text-align: center;
+				font-size: 120px;
+				font-family: 'Underdog', cursive;
+				line-height: 90%;
+				}					
+
+			h3::before {
+				content: '';
+				position: absolute;
+				bottom: 35%; left: 0;
+				width: 100%; height: 30%;
+				background-color: #ffb400;
+				z-index: -1;
+				}
+				
+			p {
+				text-align: center;
+				font-size: 30px;
+				font-family: 'Underdog', cursive;
+				line-height: 100%;
+				}
+				
+			a {
+				color: #ffffff;
+				text-decoration: none;
+				}
+			
+			.backimg {
+				position: relative;
+				}
+				
+			.main-text { 
+				display: inline-block; 
+				position: absolute;
+				left: 0%; top: 15%; 
+				text-align: center;
+				font-size: 8vw;
+				font-family: 'Press Start 2P', cursive;
+				color: #ffffff;
+				text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+				}
+				
+			.hr-dashed {
+				padding: 0;
+				height: 0;
+				border: none;
+				border-top: 5px dashed #ffb400;
+				}
+				
+			.hr1-dashed {
+				padding: 0;
+				height: 0;
+				border: none;
+				border-top: 5px dashed #ff4f00;
+				}
+			
+			.mirror {			
+				transform: scale(-1, 1); 
+				}
+  
+			img {
+				border-radius: 25px; 
+				max-width: 100%; 
+				height: auto;
+				}	
+			
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<a href="file:///C:/GT/main.html">GeekTime</a>
+		</header>
+		
+		<div class="hamburger-menu">
+			<input id="menu__toggle" type="checkbox" />
+			<label class="menu__btn" for="menu__toggle">
+			  <span></span>
+			</label>
+
+			<ul class="menu__box">
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/main.html">Главная</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/events.html">Мероприятия</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/rooms.html">Интерьер</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/price.html">Тарифы</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/games.html">Каталог игр</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/comics.html">Каталог комиксов</a></li>
+				<hr class="hr1-dashed">
+				<li><a class="menu__item" href="file:///C:/GT/admins.html">Наша команда</a></li>
+				<hr class="hr1-dashed">
+			</ul>
+		</div>
+		
+		<div class = "backimg"> 
+			<hr class="hr-dashed">
+			<img src = "pics/theme.jpg" align = center width="100%" height="100%">
+			<hr class="hr-dashed">
+			<div class = "main-text">Антикафе GeekTime<br>24/7</div>
+		</div>
+		
+		<table>
+			<tr>
+				<td><img src = "pics/work.jpg" align = center width="100%" height="100%"></td> 
+				<td><h2>GeekTime для работы</h2>
+				<p>Скоростной Wi-Fi</p>
+				<p>Розетки и зарядные устройства</p>
+				<p>Проектор и принтер</p>
+				<p>Магнитные доски</p>
+				<p>Комната для переговоров</p>
+				<p>Кофе-брейк</p>
+				<p>Возможность заказать свою еду и напитки</p>
+				<p>Абонементы для коворкинга</p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><h2>GeekTime для отдыха</h2>
+				<p>Около 300 разных настольных игр</p>
+				<p>Более 300 игр на консоли: PS4, PS3, XBox one и xbox 360</p>
+				<p>Три больших книжных шкафа с комиксами, мангой и артбуками</p>
+				<p>Виртуальная реальность</p>
+				<p>Пуфики и диваны</p>
+				<p>Большие столы для любых целей</p>
+				<p>Кинозал с проектором</p>
+				</td>
+				<td><img src = "pics/relax.jpg" align = center width="100%" height="100%"></td> 
+			</tr>
+		</table>
+		
+		<h3>  </h3>
+		<hr class="hr-dashed">
+		<h3>ТАРИФЫ</h3>
+		<hr class="hr-dashed">
+		
+		<h2>Основной тариф</h2>
+		<p>2,5 рубля в минуту</p>
+		
+		<h2>Ночной стоп-чек</h2>
+		<p>(любая ночь c 0:00 до 8:00 )</p>
+		<p>550 рублей</p>
+		
+		<h2>Дневной стоп-чек</h2>
+		<table> 
+			<tr style="height:100px">
+				<td style="width:24%"><img src = "pics/cat.png" align = center width="200px" height="200px"></td>
+				<td style="width:24%">
+					<p>пн-чт,<br>пт до 18:00</p>
+					<hr width = "100%" size = "2" color = "ffb400" align = center>
+					<p>550 рублей</p>
+				</td>
+				
+				<td style="width:4%">
+					<br>
+					<p style="font-size:75px; color:#ff4f00">&hearts;</p>
+				</td>
+				
+				<td style="width:24%">
+					<p>сб-вс,<br>пт с 18:00</p>
+					<hr width = "100%" size = "2" color = "ffb400" align = center>					
+					<p>650 рублей</p>
+				</td>
+				<td style="width:24%"><img src = "pics/cat.png" align = center width="200px" height="200px" class="mirror"></td>
+			</tr>
+		</table> 
+		
+		<h3> </h3>
+		<hr class="hr-dashed">
+		<h3>Отзывы</h3>
+		<hr class="hr-dashed">
+		<h3> </h3>
+		
+		<center><div style="max-width:100%;width:760px;height:800px;overflow:hidden;position:relative;"><iframe style="width:100%;height:100%;border:5px solid #ffb400;border-radius:20px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/1327797446?comments"></iframe></div></center>
+		
+		<h3> </h3>
+		<hr class="hr-dashed">
+		<h3>Как нас найти</h3>
+		<hr class="hr-dashed">
+		
+		<p>Москва, Новослободская ул., 36/1</p>
+		<p>Вход в арку со стороны ул. Палиха, 3 этаж</p>
+		
+		<br><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A53057535d9bf386d76bc907142c5b16699fa659d2f9a79292bc8113d57130325&amp;width=100%25&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
+
+	    <footer>
+		<img src = "pics/footcat.png" align = left width="20%" height="100%">
+		<img src = "pics/footcat.png" align = right width="20%" height="100%" class="mirror">
+		<p>GeekTime</p>
+		<p>Время работы: пн-вс, круглосуточно</p>
+		<p>Москва, Новослободская ул., 36/1</p>
+		<p>+7 (499) 286-90-45</p>
+		</footer>				
+	</body>
+</html>
