@@ -1,108 +1,215 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+﻿@font-face {
+    font-family: "Sensei Medium";
+    src: url("/css/fonts/sensei-medium.eot"); /* IE9 Compat Modes */
+    src: url("/css/fonts/sensei-medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/css/fonts/sensei-medium.otf") format("opentype"), /* Open Type Font */
+    url("/css/fonts/sensei-medium.svg") format("svg"), /* Legacy iOS */
+    url("/css/fonts/sensei-medium.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("/css/fonts/sensei-medium.woff") format("woff"), /* Modern Browsers */
+    url("/css/fonts/sensei-medium.woff2") format("woff2"); /* Modern Browsers */
 }
 
-a {
-    color: #242e31;
-    text-decoration: none;
-    font-weight: 600;
+body {
+    background: #fffdd0;
+    padding: 150px;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    height: 80px;
-    background: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+    }
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+#menu__toggle:checked ~ .menu__box {
+        visibility: visible;
+        left: 0;
+    }
+
+.menu__btn {
     display: flex;
-    padding: 5px 0;
     align-items: center;
-    justify-content: space-between;
-}
-
-.container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
-}
-
-.content-wrapper {
-    width: 100%;
-}
-
-.header__nav {
-    position: absolute;
-    right: 36px;
-    display: block;
-}
-
-.header__menu {
-    display: flex;
-    position: relative;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 10%;
+    cursor: pointer;
     z-index: 2;
 }
 
-.header__menu li {
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        transition-duration: .25s;
+    }
+
+.menu__btn > span::before {
+            content: '';
+            top: -8px;
+        }
+
+.menu__btn > span::after {
+            content: '';
+            top: 8px;
+        }
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    z-index: 1;
+    width: 30%;
+    height: 100%;
+    margin: 0;
+    padding: 150px 0;
     list-style: none;
-    margin: 0px 0px 0px 36px;
-    font-size: 16px;
-    text-transform: uppercase;
+    background-color: #ffb400;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition-duration: .25s;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #fffdd0;
+    text-align: center;
+    font-family: "Sensei Medium";
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+    .menu__item:hover {
+        background-color: #ff4f00;
+    }
+
+header {
+    top: 0;
+    left: 0;
+    align: center;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 110px;
+    font-family: "Sensei Medium", "Trebuchet MS";
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 150px;
+    background-color: #ffb400;
+}
+
+footer {
+    padding: 20px;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+    background-color: #ff4f00;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    height: 200%;
+    border-collapse: collapse;
+    font-size: 30px;
+    font-family: "Sensei Medium", "Trebuchet MS";
+    color: #000000;
+}
+
+tr {
+    height: 600px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+    height: 1024;
+}
+
+h2 {
+    text-align: center;
+    font-size: 60px;
+    font-family: "Sensei Medium";
+    line-height: 20%;
+    background: #ffb400;
+}
+
+h3 {
+    text-align: center;
+    font-size: 150px;
+    font-family: "Sensei Medium";
+    line-height: 0%;
+}
+
+h4 {
+    text-align: center;
+    font-size: 120px;
+    font-family: "Sensei Medium";
+    line-height: 30%;
+    background: #ffb400;
+}
+
+p {
+    text-align: center;
+    font-size: 30px;
+    font-family: "Sensei Medium";
+    line-height: 100%;
+}
+
+a {
+    color: #ffffff;
     text-decoration: none;
 }
 
-.content-wrapper {
-    margin-top: 78px;
-    padding: 10px;
-    line-height: 34px;
-}
-
-/*для мобильного*/
-@media(max-width: 767px) {
-    .menu-burger__header {
-        position: relative; /* задаем относительное позиционирование */
-        width: 40px; /* определяем размеры блока */
-        height: 35px;
-        display: block;
-        margin-left: 10px;
-    }
-    header {
-        height: 60px;
-    }
-    .content-wrapper {
-        margin-top: 48px;
-    }
-}
-
-
-/*немного оформления*/
-.menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before {
-    height: 3px;
-    width: 100%;
+.backimg div {
+    display: inline-block;
     position: absolute;
-    background: #515758;
-    margin: 0 auto;
+    left: 15%;
+    top: 35%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 140px;
+    font-family: "Sensei Medium", "Trebuchet MS";
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
 }
 
-.menu-burger__header span {
-    top: 21px;
+.hr-dashed {
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 5px dashed #ffb400;
 }
 
-.menu-burger__header:after, .menu-burger__header:before {
-    content: '';
+.hr1-dashed {
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 5px dashed #ff4f00;
 }
 
-.menu-burger__header:after {
-    bottom: 5px;
-}
-
-.menu-burger__header:before {
-    top: 5px;
+img {
+    border-radius: 25px;
 }
