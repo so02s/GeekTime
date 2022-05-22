@@ -1,24 +1,89 @@
-<!--Игры-->
 @{
     ViewData["Title"] = "Игры";
 }
-
+<!--каталог игр-->
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
 
-    <title>Антикафе GeekTime | Каталог игр</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
+    <!--скрипты для пролистывания-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--пролистывание наверх-->
+    <script type="text/javascript">
+			$(function() {
+				$(window).scroll(function() {
+					if($(this).scrollTop() != 0) {
+						$('#toTop').fadeIn();
+						}
+					else {
+						$('#toTop').fadeOut();
+						}
+					});
+				$('#toTop').click(function() {
+					$('body,html').animate({scrollTop:0},800);
+					});
+				});
+    </script>
+    <!--пролистывание до якоря-->
+    <script>
+			$(document).ready(function(){
+				$('a[href^="#"], *[data-href^="#"]').on('click', function(e){
+					e.preventDefault();
+					var t = 800;
+					var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
+					$('html,body').stop().animate({ scrollTop: $(d).offset().top - 120}, t);
+				});
+			});
+    </script>
+
+    <title>Антикафе GeekTime | Каталог игр</title>
+    <link rel="icon" href="css/pics/icocat.png" type="image/x-icon">
 </head>
 
 <body>
+    <div class="backimg">
+        <img src="css/pics/fon.jpg" align=center width="100%" height="100%">
+        <div class="title">Игротека</div>
+    </div>
 
-    <hr class="hr-dashed">
-    <h4>Каталог игр</h4>
-    <hr class="hr-dashed">
+    <table>
+        <tr style="height:50%">
+            <td><h1><a href="#board"><font color="#ff4f00">НАСТОЛЬНЫЕ ИГРЫ</font></a></h1></td>
+            <td><h1><a href="#console"><font color="#ff4f00">КОНСОЛЬНЫЕ ИГРЫ</font></a></h1></td>
+        </tr>
+    </table>
 
+    <div class="backimg">
+        <img id="board" src="css/pics/sep_board.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Настольные игры</div>
+    </div>
+
+    <table>
+        <tr style="height:50%">
+            <td style="width:26%"><h1><a href="#two"><font color="#ff0000"> Для двоих </font></a></h1></td>
+            <td style="width:37%"><h1><a href="#lil"><font color="#00ff00"> Для маленькой компании </font></h1></a></td>
+            <td style="width:37%"><h1><a href="#big"><font color="#0000ff"> Для большой компании </font></h1></a></td>
+        </tr>
+    </table>
+
+    <div class="backimg">
+        <img id="console" src="css/pics/sep_console.png" align=center width="100%" height="100%">
+        <div class="liltitle">Консольные игры</div>
+    </div>
+
+    <table>
+        <tr style="height:50%">
+            <td><h1><a href="#xbox"><font color="#0f7b0e"> XBOX </font></a></h1></td>
+            <td><h1><a href="#ps"><font color="#084595"> PLAYSTATION </font></a></h1></td>
+        </tr>
+    </table>
+
+    <div id="toTop">
+        <i class="fa fa-chevron-up"></i>
+    </div>
 </body>
 </html>
-
