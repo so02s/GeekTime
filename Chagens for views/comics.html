@@ -1,0 +1,94 @@
+<!--каталог книг и комиксов-->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+
+		<!--скрипты для пролистывания-->				
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+		<!--пролистывание наверх-->
+		<script type="text/javascript">
+			$(function() {
+				$(window).scroll(function() {
+					if($(this).scrollTop() != 0) {
+						$('#toTop').fadeIn();
+						} 
+					else {
+						$('#toTop').fadeOut();
+						}
+					});
+				$('#toTop').click(function() {
+					$('body,html').animate({scrollTop:0},800);
+					});
+				});
+		</script>		
+		<!--пролистывание до якоря-->
+		<script>
+			$(document).ready(function(){
+				$('a[href^="#"], *[data-href^="#"]').on('click', function(e){
+					e.preventDefault();
+					var t = 800;
+					var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
+					$('html,body').stop().animate({ scrollTop: $(d).offset().top - 120}, t);
+				});
+			});
+		</script>
+		
+		<title>Антикафе GeekTime | Каталог книг и комиксов</title>
+		<link rel="icon" href="css/pics/icocat.png" type="image/x-icon">	
+	</head>
+
+	<body>
+		<div class = "backimg"> 
+			<img src = "css/pics/fon.jpg" align = center width="100%" height="100%">
+			<div class = "title">Библиотека</div>
+		</div>
+	
+		<table>
+			<tr style="height:50%">
+				<td style="width:25%"><h1><a href="#comics"><font color="#ff4f00">КОМИКСЫ</font></a></h1></td> 
+				<td style="width:25%"><h1><a href="#manga"><font color="#ff4f00">МАНГА</font></a></h1></td>
+				<td style="width:25%"><h1><a href="#artbook"><font color="#ff4f00">АРТБУКИ</font></a></h1></td>
+				<td style="width:25%"><h1><a href="#books"><font color="#ff4f00">КНИГИ</font></a></h1></td>
+			</tr>
+		</table>	
+		
+		<div class = "backimg"> 
+			<img id="comics" src = "css/pics/sep_comics.jpg" align = center width="100%" height="100%">
+			<div class = "liltitle">КОМИКСЫ</div>
+		</div>			
+
+		<table>
+			<tr style="height:50%">
+				<td style="width:16%"><h1><a href="#marvel"><font color="#e23636"> MARVEL </font></a></h1></td> 
+				<td style="width:16%"><h1><a href="#dc"><font color="#0077f6"> DC COMICS </font></a></h1></td>
+				<td style="width:16%"><h1><a href="#bubble"><font color="#5387c6"> BUBBLE </font></a></h1></td>
+				<td style="width:18%"><h1><a href="#dh"><font color="#000000"> DARK HORSE </font></a></h1></td>
+				<td style="width:18%"><h1><a href="#vertigo"><font color="#cc1c1f"> DC VERTIGO </font></a></h1></td>
+				<td style="width:16%"><h1><a href="#other"><font color="#3caa3c"> ДРУГИЕ </font></a></h1></td>
+			</tr>
+		</table>
+
+		<div class = "backimg"> 
+			<img id="manga" src = "css/pics/sep_manga.jpg" align = center width="100%" height="100%">
+			<div class = "liltitle">МАНГА</div>
+		</div>	
+	
+		<div class = "backimg"> 
+			<img id="artbook" src = "css/pics/sep_artbook.jpg" align = center width="100%" height="100%">
+			<div class = "liltitle">АРТБУКИ</div>
+		</div>			
+		
+		<div class = "backimg"> 
+			<img id="books" src = "css/pics/sep_book.jpg" align = center width="100%" height="100%">
+			<div class = "liltitle">КНИГИ</div>
+		</div>	
+	
+		<div id="toTop">
+			<i class="fa fa-chevron-up"></i>
+		</div>		
+	</body>
+</html>
