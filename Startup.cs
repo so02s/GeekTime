@@ -39,8 +39,16 @@ namespace GeekTime
             {
                 routes.MapRoute(
                 name: "default",
-                template: "{controller=Admin}/{action=AdminPage}");
+                template: "{controller=AdminController}/{action=AdminPage}");
             });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                name: "contact",
+                template: "{controller=ContactController}/{action=ContactPage}");
+            });
+
         } //to configure the HTTP request pipeline.
 
 

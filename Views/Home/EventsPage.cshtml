@@ -1,0 +1,40 @@
+﻿@using GeekTime.Models
+@using GeekTime.Manager
+@model IEnumerable<Events>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>EventsPage</title>
+    </head>
+    <body>
+        <h1>Ивенты GeekTime:</h1>
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>Должность</th>
+                <th>Имя</th>
+                <th>телефон</th>
+                <th>почта</th>
+            </tr>
+            @{
+                foreach (var item in EventsList.eventlist)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Describtion</td>
+                        <td>@item.Image</td>
+                        <td>@item.Admin</td>
+                    </tr>
+                }
+            }
+        </table>
+        @using (Html.BeginForm("CreateEvent", "Home"))
+        {
+            <div>
+                <input type="submit" value="Добавить эвент" />
+            </div>
+        }
+    </body>
+
+</html>

@@ -17,15 +17,12 @@ namespace GeekTime.Controllers
         }
         public ViewResult AdminPage()
         {
-            var students = _adminManager.admin;
-            return View(students);
+            var admin = _adminManager.admin;
+            return View(admin);
         }
-        public ViewResult CreateAdmin()
-        {
-            return View();
-        }
+
         [HttpPost]
-        public ActionResult Create(string Name, string Events, string Image)
+        public ActionResult CreateAdmin(string Name, string Events, string Image)
         {
             try
             {

@@ -12,7 +12,10 @@ namespace GeekTime.Models
             public string Name { get; set; }
             public string Events { get; set; }
             public string Image { get; set; }
-            public override string ToString() => $"Админ: {Name}, он ведет: {Events}, Вот как он выглядит: {Image}";
+        public override string ToString()
+        {
+            return $"Админ: {Name}, он ведет: {Events}, Вот как он выглядит: {Image}";
+        }
  public Admin(string Name, string Events, string Image)
         {
             this.Name = Name;
