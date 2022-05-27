@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GeekTime</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="header">
+        <a asp-area="" asp-controller="Home" asp-action="Index">GeekTime</a>
+    </header>
+
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Events">Мероприятия</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Rooms">Интерьер</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Price">Тарифы</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Games">Каталог игр</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Comics">Каталог комиксов</a></li>
+            <hr class="hr1-dashed">
+            <li><a class="menu__item" asp-area="" asp-controller="Home" asp-action="Admins">Наша команда</a></li>
+            <hr class="hr1-dashed">
+        </ul>
+    </div>
+    <div class="content-wrapper">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <img src="/css/pics/footcat.png" align=left width="25%" height="100%">
+        <img src="/css/pics/footcat.png" align=right width="25%" height="100%" class="mirror">
+        <p>GeekTime</p>
+        <p>Время работы: пн-вс, круглосуточно</p>
+        <p>Москва, Новослободская ул., 36/1</p>
+        <p>+7 (499) 286-90-45</p>
+
+        <div>
+            <div style="text-align:center;"><p>Следите за нами в соцсетях!</p></div>
+            <ul class="social-icons">
+                <li><a class="social-icon-vk" href="https://vk.com/geek.time" title="GeekTime в ВКонтакте!" target="_blank" rel="noopener"><i class="fa fa-vk"></i></a></li>
+                <li><a class="social-icon-tg" href="https://t.me/geektimeinfo" title="GeekTime в Telegram!" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a></li>
+                <li><a class="social-icon-fb" href="https://www.facebook.com/g33kt1m3/" title="GeekTime в Facebook!" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="social-icon-ig" href="https://www.instagram.com/geek_time_point/" title="GeekTime в Instagram!" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="social-icon-yt" href="https://www.youtube.com/channel/UCwUI1zw3k-gTPjNMvqaupuA" title="GeekTime на Youtube!" target="_blank" rel="noopener"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
