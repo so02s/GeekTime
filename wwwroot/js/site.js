@@ -13,30 +13,7 @@ $('.flowing-scroll').on('click', function () {
 
 //меню
 $(document).ready(function () {
-    // Клик по кнопке открывает меню, повторный клик закрывает  
-    $('.pushmenu').click(function () {
-        $('.pushmenu').toggleClass("open");
-        $('.sidebar').toggleClass("show");
-        $('.hidden-overley').toggleClass("show");
-        $('body').toggleClass("sidebar-opened")
+    $('.menu-burger__header').click(function () {
+        $('.menu-burger__header').toggleClass('open-menu');
     });
-
-    // Когда панель открыта, клик по области вне панели закрывает ее
-    $('.hidden-overley').click(function(){
-        $(this).toggleClass("show");
-      $('.sidebar').toggleClass("show");
-      $('.pushmenu').toggleClass("open");
-      $('body').toggleClass("sidebar-opened")
-    });
-
-    // Меняем активность пункта меню по клику
-    $('.sidebar ul li').click(function(){
-        $(this).addClass("current-menu-item").siblings().removeClass("current-menu-item");
-    });
-
-    // Для анимации поворота каретки
-    $('.menu-parent-item a:first-child').click(function(){
-        $(this).siblings().toggleClass("show");
-        $(this).find("i").toggleClass("rotate");
-       });
 });

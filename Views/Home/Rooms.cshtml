@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "Интерьер";
+}
+<!--интерьер-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!--скрипты для пролистывания-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--пролистывание наверх-->
+    <script type="text/javascript">
+			$(function() {
+				$(window).scroll(function() {
+					if($(this).scrollTop() != 0) {
+						$('#toTop').fadeIn();
+						}
+					else {
+						$('#toTop').fadeOut();
+						}
+					});
+				$('#toTop').click(function() {
+					$('body,html').animate({scrollTop:0},800);
+					});
+				});
+    </script>
+    <!--пролистывание до якоря-->
+    <script>
+			$(document).ready(function(){
+				$('area[href^="#"], *[data-href^="#"]').on('click', function(e){
+					e.preventDefault();
+					var t = 800;
+					var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
+					$('html,body').stop().animate({ scrollTop: $(d).offset().top - 120}, t);
+				});
+			});
+    </script>
+
+    <title>Антикафе GeekTime | Интерьер</title>
+
+    <link rel="icon" href="css/pics/icocat.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="backimg">
+        <img src="css/pics/fon.jpg" width="100%" height="100%">
+        <div class="title">Интерьер</div>
+    </div>
+
+
+    <center><img src="css/pics/rooms.png" usemap="#rooms"></center>
+
+    <map name="rooms">
+        <area alt="VR" title="VR" href="#vr" coords="30,42,179,241" shape="rect">
+        <area alt="Гостиная Татуин" title="Гостиная Татуин" href="#tatuin" coords="178,372,481,43" shape="rect">
+        <area alt="Гостиная Adventure Time" title="Гостиная Adventure Time" href="#at" coords="482,370,785,41" shape="rect">
+        <area alt="Гостиная Шелдон" title="Гостиная Шелдон" href="#sheldon" coords="786,242,998,41" shape="rect">
+        <area alt="Гостиная ТАРДИС" title="Гостиная ТАРДИС" href="#tardis" coords="30,414,178,241" shape="rect">
+        <area alt="Кухня" title="Кухня" href="#kitchen" coords="241,618,480,474" shape="rect">
+        <area alt="Гостиная Алиса в Стране Чудес" title="Гостиная Алиса в Стране Чудес" href="#alice" coords="30,616,180,414" shape="rect">
+        <area alt="Комиксная" title="Комиксная" href="#comix" coords="785,472,786,242,998,242,1001,366,907,473" shape="poly">
+    </map>
+
+    <div class="backimg">
+        <img id="vr" src="css/pics/vr.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">VR</div>
+    </div>
+
+    <div class="backimg">
+        <img id="tatuin" src="css/pics/tatuin.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Гостиная Татуин</div>
+    </div>
+
+    <div class="backimg">
+        <img id="at" src="css/pics/at.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Гостиная Adventure Time</div>
+    </div>
+
+    <div class="backimg">
+        <img id="sheldon" src="css/pics/sheldon.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Гостиная Шелдон</div>
+    </div>
+
+    <div class="backimg">
+        <img id="tardis" src="css/pics/tardis.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Гостиная ТАРДИС</div>
+    </div>
+
+    <div class="backimg">
+        <img id="kitchen" src="css/pics/kitchen.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Кухня</div>
+    </div>
+
+    <div class="backimg">
+        <img id="alice" src="css/pics/alice.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Гостиная Алиса в Стране Чудес</div>
+    </div>
+
+    <div class="backimg">
+        <img id="comix" src="css/pics/comix.jpg" align=center width="100%" height="100%">
+        <div class="liltitle">Комиксная</div>
+    </div>
+
+    <div id="toTop">
+        <i class="fa fa-chevron-up"></i>
+    </div>
+</body>
+</html>
+

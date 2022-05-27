@@ -55,7 +55,27 @@ namespace GeekTime.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Admins()
+        {
+            return View();
+        }
+        public IActionResult Rooms()
+        {
+            return View();
+        }
+        public IActionResult Comics()
+        {
+            return View();
+        }
+        public IActionResult Events()
+        {
+            return View();
+        }
+        public IActionResult Games()
+        {
+            return View();
+        }
+        public IActionResult Price()
         {
             return View();
         }
