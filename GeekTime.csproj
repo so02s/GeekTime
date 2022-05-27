@@ -5,37 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Controllers\HomeController.cs" />
-    <None Include="Views\Home\Admins.cshtml" />
-    <None Include="Views\Home\Comics.cshtml" />
-    <None Include="Views\Home\Events.cshtml" />
-    <None Include="Views\Home\Games.cshtml" />
-    <None Include="Views\Home\Price.cshtml" />
-    <None Include="Views\Home\Rooms.cshtml" />
-    <None Include="wwwroot\css\fonts\sensei-medium.eot" />
-    <None Include="wwwroot\css\fonts\sensei-medium.otf" />
-    <None Include="wwwroot\css\fonts\sensei-medium.svg" />
-    <None Include="wwwroot\css\fonts\sensei-medium.ttf" />
-    <None Include="wwwroot\css\fonts\sensei-medium.woff" />
-    <None Include="wwwroot\css\fonts\sensei-medium.woff2" />
-    <None Include="wwwroot\css\pics\cat.png" />
-    <None Include="wwwroot\css\pics\footcat.png" />
-    <None Include="wwwroot\css\pics\icocat.png" />
-    <None Include="wwwroot\css\pics\relax.jpg" />
-    <None Include="wwwroot\css\pics\theme.jpg" />
-    <None Include="wwwroot\css\pics\work.jpg" />
-    <None Include="wwwroot\css\site.css" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="jQuery" Version="3.6.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.8" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Chagens for views\" />
   </ItemGroup>
 
 </Project>

@@ -10,10 +10,3 @@ $('.flowing-scroll').on('click', function () {
     }
     return false;
 });
-
-//меню
-$(document).ready(function () {
-    $('.menu-burger__header').click(function () {
-        $('.menu-burger__header').toggleClass('open-menu');
-    });
-});
