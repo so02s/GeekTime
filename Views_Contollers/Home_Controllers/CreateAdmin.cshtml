@@ -1,0 +1,31 @@
+﻿@using GeekTime.Manager
+@using GeekTime.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAdmin</title>
+</head>
+<body>
+    <h4>Добавление админа</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            @using (Html.BeginForm("CreateAdmin", "Home"))
+            {
+                <label>Имя:</label><br />
+                <input type="text" name="Name" /><br /><br />
+                <label>Его ивент:</label><br />
+                <input type="text" name="Events" /><br /><br />
+                <label>Как он выглядит:</label><br />
+                <input type="text" name="Images" /><br /><br />
+                <input type="submit" value="Добавить этого админа" />
+            }
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Вернуться к списку админов", "AdminPage", "Home")
+    </div>
+</body>
+</html>

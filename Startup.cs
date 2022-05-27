@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using GeekTime.Manager;
 
 namespace GeekTime
 {
@@ -17,41 +20,37 @@ namespace GeekTime
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // This method is used to add services to the container.
             services.AddControllersWithViews();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            services.AddMvc(option => option.EnableEndpointRouting = false);// поддержка MVC
+            services.AddTransient<IAdminManager, AdminManager>();
+        } //для регистрации плагинов в проекте
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseDeveloperExceptionPage(); // отображение страницы с ошибками
+            app.UseStatusCodePages(); //отображение кодов страницы
+            app.UseStaticFiles();  // отображение картинок, css
+            app.UseMvcWithDefaultRoute(); //отслеживание URL-адреса (без полного адреса - по умолчанию)
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=AdminController}/{action=AdminPage}");
             });
-        }
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                name: "contact",
+                template: "{controller=ContactController}/{action=ContactPage}");
+            });
+
+        } //to configure the HTTP request pipeline.
+
+
     }
 }
