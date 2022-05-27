@@ -1,0 +1,31 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateContact</title>
+</head>
+<body>
+    <h4>Добавление контакта</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            @using (Html.BeginForm("CreateContact", "Contacts"))
+            {
+                <label>Должность:</label><br />
+                <input type="text" name="Post" /><br /><br />
+                <label>Имя:</label><br />
+                <input type="text" name="Name" /><br /><br />
+                <label>Почта:</label><br />
+                <input type="text" name="Mail" /><br /><br />
+                <label>Телефон:</label><br />
+                <input type="text" name="TelNumber" /><br /><br />
+                <input type="submit" value="Добавить контакт" />
+            }
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Вернуться к списку контактов", "ContactPage", "Contacts")
+    </div>
+</body>
+</html>

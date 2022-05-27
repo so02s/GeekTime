@@ -22,6 +22,38 @@ namespace GeekTime.Controllers
         {
             return View();
         }
+        public IActionResult AdminPage()
+        {
+            return View();
+        }
+        public IActionResult CreateAdmin()
+        {
+            return View();
+        }
+        public IActionResult ContactPage()
+        {
+            return View();
+        }
+        public IActionResult CreateContact()
+        {
+            return View();
+        }
+        public IActionResult EventsPage()
+        {
+            return View();
+        }
+        public IActionResult CreateEvent()
+        {
+            return View();
+        }
+        public IActionResult PostsPage()
+        {
+            return View();
+        }
+        public IActionResult CreatePost()
+        {
+            return View();
+        }
 
         public IActionResult Admins()
         {

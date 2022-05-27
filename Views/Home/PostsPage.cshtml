@@ -1,0 +1,40 @@
+﻿@using GeekTime.Models
+@using GeekTime.Manager
+@model IEnumerable<Post>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PostPage</title>
+</head>
+<body>
+    <h1>Посты GeekTime:</h1>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Должность</th>
+            <th>Имя</th>
+            <th>телефон</th>
+            <th>почта</th>
+        </tr>
+        @{
+            foreach (var item in PostsList.postlist)
+            {
+                <tr>
+                    <td>@item.Vk_link</td>
+                    <td>@item.Image</td>
+                    <td>@item.Describtion</td>
+                    <td>@item.Admin</td>
+                </tr>
+            }
+        }
+    </table>
+    @using (Html.BeginForm("CreatePost", "Home"))
+    {
+        <div>
+            <input type="submit" value="Добавить пост" />
+        </div>
+    }
+</body>
+
+</html>
