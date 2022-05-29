@@ -1,35 +1,43 @@
-﻿<!--Админы-->
-<!doctype html>
+﻿@{
+    ViewData["Title"] = "Админы";
+}
+
+<script src="/js/site.js"></script>
+
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Антикафе GeekTime | Наша команда</title>
+    <head>
+        <meta charset="utf-8">
 
-		<link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
-	</head>
+        <title>Антикафе GeekTime | Наша команда</title>
 
-	<body>
+        <link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
 
-		<hr class="hr-dashed">
-		<h4>Наша команда</h4>
-		<hr class="hr-dashed">
-		
-        <div class="admin_table">
-            <div class="admin_card">
-                <div class="admin_desc">
-                    <div class="admin_image">
+        <link rel="stylesheet" type="text/css" href="../../css/site.css">
+    </head>
+
+    <body>
+        <div class="backimg">
+            <img src="/css/pics/fon.jpg" align=center width="100%" height="100%">
+            <div class="title">Наша команда</div>
+        </div>
+
+        <div class="game_comics_admin_table">
+            <!--карточка админа-->
+            <div class="game_comics_admin_card"> 
+                <div class="game_comics_admin_desc">
+                    <div class="game_comics_admin_image">
                         <img src="admin.jpg">
                     </div>
-                    <div class="admin_name"> NAME </div>
+                    <div class="game_comics_admin_name"> NAME </div>
                     <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
                     <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
                     <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT3</font></a></div>
                 </div>
             </div>
-
-
-
+        <!--сюда добавим еще карточек админов-->
         </div>
-</body>
+
+        <hr class="hr-dashed">
+    </body>
 </html>
