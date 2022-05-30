@@ -22,7 +22,7 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBoardGame(string Name, int MaxPlayers, int Playtime, string Rooms)
+        public ActionResult CreateBoardGame(string Name, int MaxPlayers, int Playtime, int Rooms)
         {
             try
             {

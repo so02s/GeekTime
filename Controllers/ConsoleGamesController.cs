@@ -22,7 +22,7 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateConsoleGame(string Name, int MaxPlayers, string WhatConsole, string Rooms)
+        public ActionResult CreateConsoleGame(string Name, int MaxPlayers, string WhatConsole, int Rooms)
         {
             try
             {

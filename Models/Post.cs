@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekTime.Models
 {
     public class Post
     {
-            public int ID { get; set; }
-            public string Vk_link { get; set; }
-            public string Image { get; set; }
-            public string Describtion { get; set; }
-            public string Admin { get; set; }
-            public Post(string Vk_link, string Image, string Describtion, string Admin)
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
+        [Required]
+        public string Vk_link { get; set; }
+        [Required]
+        public string Image { get; set; }
+        public string Describtion { get; set; }
+        public string Admin { get; set; }
+        public Post(string Vk_link, string Image, string Describtion, string Admin)
             {
                 this.Vk_link = Vk_link;
                 this.Image = Image;

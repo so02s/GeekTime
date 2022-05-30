@@ -29,10 +29,12 @@ namespace GeekTime.Manager
         {
             public static List<ConsoleGames> consoleGames = new List<ConsoleGames>()
             {
+                /*
                  new ConsoleGames("Overcooked!", 6, "Xbox One", "Шелдон"),
                  new ConsoleGames("Mortal Combat 11", 2, "PS4 PRO", "Время приключений"),
                  new ConsoleGames("Moving Out", 6, "Xbox One", "Татуин"),
                  new ConsoleGames("It takes two", 2, "Xbox SeriaS", "Тардис"),
+                */
             };
         }
     }

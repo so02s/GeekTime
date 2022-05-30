@@ -9,16 +9,23 @@ namespace GeekTime.Models
 {
     public class Comics
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Genre { get; set; }
-        public string Room { get; set; }
+        [Required]
+        public int RoomID { get; set; }
 
-        public Comics(string Name, string Genre, string Room)
+        [ForeignKey(nameof(RoomID))]
+        public virtual Rooms Rooms { get; set; }
+
+        public Comics(string Name, string Genre, int RoomID)
         {
             this.Name = Name;
             this.Genre = Genre;
-            this.Room = Room;
+            this.RoomID = RoomID;
         }
     }
 }
