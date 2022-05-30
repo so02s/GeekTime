@@ -15,30 +15,30 @@ namespace GeekTime.Models
         public string Name { get; set; }
         public string Image { get; set; }
         [Required]
-        public int EventID { get; set; }
+        public string Event { get; set; }
 
-        [ForeignKey(nameof(EventID))]
+        [ForeignKey(nameof(Event))]
         public virtual Events Events { get; set; }
 
         [Required]
-        public int RateID { get; set; }
+        public string Rate { get; set; }
 
-        [ForeignKey(nameof(RateID))]
+        [ForeignKey(nameof(Rate))]
         public virtual Rates Rates { get; set; }
 
         [Required]
-        public int TimetableRentID { get; set; }
+        public string TimetableRents { get; set; }
 
-        [ForeignKey(nameof(TimetableRentID))]
+        [ForeignKey(nameof(TimetableRents))]
         public virtual TimetableRent TimetableRent { get; set; }
 
-        public Rooms(string Name, string Image, int Events, int Rates, int Timetable)
+        public Rooms(string Name, string Image, string Events, string Rates, string Timetable)
         {
             this.Name = Name;
             this.Image = Image;
-            this.EventID = Events;
-            this.RateID = Rates;
-            this.TimetableRentID = Timetable;
+            this.Event = Events;
+            this.Rate = Rates;
+            this.TimetableRents = Timetable;
         }
     }
 }

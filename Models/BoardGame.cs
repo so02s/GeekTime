@@ -18,17 +18,20 @@ namespace GeekTime.Models
         [Required]
         public int Playtime { get; set; }
         [Required]
-        public int RoomID { get; set; }
+        public string Photo { get; set; }
+        [Required]
+        public string Room { get; set; }
 
-        [ForeignKey(nameof(RoomID))]
+        [ForeignKey(nameof(Room))]
         public virtual Rooms Rooms { get; set; }
 
-        public BoardGame(string Name, int MaxPlayers, int Playtime, int RoomID)
+        public BoardGame(string Name, int MaxPlayers, int Playtime, string Photo, string RoomID)
         {
             this.Name = Name;
             this.MaxPlayers = MaxPlayers;
             this.Playtime = Playtime;
-            this.RoomID = RoomID;
+            this.Photo = Photo;
+            this.Room = RoomID;
         }
     }
 }

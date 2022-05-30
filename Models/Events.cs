@@ -17,17 +17,17 @@ namespace GeekTime.Models
         public string Image { get; set; }
         public string Describtion { get; set; }
         [Required]
-        public int AdminID { get; set; }
+        public string AdminName { get; set; }
 
-        [ForeignKey(nameof(AdminID))]
+        [ForeignKey(nameof(AdminName))]
         public virtual Admin Admin { get; set; }
 
-        public Events(string Name, string Image, string Describtion, int AdminID)
+        public Events(string Name, string Image, string Describtion, string Admin)
         {
             this.Name = Name;
             this.Image = Image;
             this.Describtion = Describtion;
-            this.AdminID = AdminID;
+            this.AdminName = Admin;
         }
     }
 }

@@ -30,10 +30,8 @@ namespace GeekTime.Manager
     {
         public static List<Comics> сomics = new List<Comics>()
         {
-         /*
-          new Comics("Шерлок", "детектив", "комиксная"),
+         new Comics("Шерлок", "детектив", "комиксная"),
          new Comics("Свинка По", "детское", "шелдон"),
-         */
         };
     }
 }

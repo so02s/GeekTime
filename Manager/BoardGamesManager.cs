@@ -29,12 +29,10 @@ namespace GeekTime.Manager
         {
             public static List<BoardGame> boardgame = new List<BoardGame>()
             {
-                /*
-             new BoardGame("Terranova", 8, 120, "адрес фотки"),
-             new BoardGame("Caverna", 4, 120, "адрес фотки"),
-             new BoardGame("Taverna of Dragon", 6, 60, "адрес фотки"),
-             new BoardGame("Onitama", 2, 20, "адрес фотки"),
-                */
+             new BoardGame("Terranova", 8, 120, "адрес фотки", "Шелдон"),
+             new BoardGame("Caverna", 4, 120, "адрес фотки", "Время приключений"),
+             new BoardGame("Taverna of Dragon", 6, 60, "адрес фотки", "Татуин"),
+             new BoardGame("Onitama", 2, 20, "адрес фотки", "Время приключений"),
             };
         }
     }

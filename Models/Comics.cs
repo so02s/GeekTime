@@ -16,16 +16,16 @@ namespace GeekTime.Models
         [Required]
         public string Genre { get; set; }
         [Required]
-        public int RoomID { get; set; }
+        public string Room { get; set; }
 
-        [ForeignKey(nameof(RoomID))]
+        [ForeignKey(nameof(Room))]
         public virtual Rooms Rooms { get; set; }
 
-        public Comics(string Name, string Genre, int RoomID)
+        public Comics(string Name, string Genre, string Room)
         {
             this.Name = Name;
             this.Genre = Genre;
-            this.RoomID = RoomID;
+            this.Room = Room;
         }
     }
 }
