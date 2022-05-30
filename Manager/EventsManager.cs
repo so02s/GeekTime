@@ -30,8 +30,8 @@ namespace GeekTime.Manager
     {
         public static List<Events> eventlist = new List<Events>()
         {
-             new Events("Мафия", "link to image", "describtion", "link to admin"),
-             new Events("Игротека", "link to image", "describtion", "link to admin"),
+            // new Events("Мафия", "link to image", "describtion", "link to admin"),
+            // new Events("Игротека", "link to image", "describtion", "link to admin"),
         };
     }
 }

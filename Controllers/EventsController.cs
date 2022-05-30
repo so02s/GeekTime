@@ -22,11 +22,11 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateEvent(string Name, string Image, string Describthion, string Admin)
+        public ActionResult CreateEvent(string Name, string Image, string Describthion, int AdminID)
         {
             try
             {
-                _eventManager.AddEvent(new Events(Name, Image, Describthion, Admin));
+                _eventManager.AddEvent(new Events(Name, Image, Describthion, AdminID));
                 return RedirectToAction(nameof(EventPage));
             }
             catch
