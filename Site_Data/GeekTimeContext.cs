@@ -8,7 +8,6 @@ namespace GeekTime.Site_Data
     {
         public GeekTimeContext(DbContextOptions<GeekTimeContext> options) : base(options)
         {
-
         }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Events> Events { get; set; }
@@ -20,6 +19,13 @@ namespace GeekTime.Site_Data
         public DbSet<Rates> Rates { get; set; }
         public DbSet<Rooms> Rooms { get; set; }
         public DbSet<TimetableRent> TimetableRents { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Admin>()
+                .HasIndex(p => new { p.Name })
+                .IsUnique(true);
+        }
     }
 
 }

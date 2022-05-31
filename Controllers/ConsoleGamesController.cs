@@ -22,11 +22,11 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateConsoleGame(string Name, int MaxPlayers, string WhatConsole, int Rooms)
+        public ActionResult CreateConsoleGame(string Name, int MaxPlayers, string WhatConsole, string Photo, string Rooms)
         {
             try
             {
-                _consolegameManager.AddConsoleGame(new ConsoleGames(Name, MaxPlayers, WhatConsole, Rooms));
+                _consolegameManager.AddConsoleGame(new ConsoleGames(Name, MaxPlayers, WhatConsole, Photo, Rooms));
                 return RedirectToAction(nameof(ConsoleGamePage));
             }
             catch

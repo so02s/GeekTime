@@ -22,11 +22,11 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBoardGame(string Name, int MaxPlayers, int Playtime, int Rooms)
+        public ActionResult CreateBoardGame(string Name, int MaxPlayers, int Playtime, string Photo, string Rooms)
         {
             try
             {
-                _boardgameManager.AddBoardGame(new BoardGame(Name, MaxPlayers, Playtime, Rooms));
+                _boardgameManager.AddBoardGame(new BoardGame(Name, MaxPlayers, Playtime, Photo, Rooms));
                 return RedirectToAction(nameof(BoardGamePage));
             }
             catch

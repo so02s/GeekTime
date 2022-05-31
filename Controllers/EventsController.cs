@@ -22,7 +22,7 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateEvent(string Name, string Image, string Describthion, int AdminID)
+        public ActionResult CreateEvent(string Name, string Image, string Describthion, string AdminID)
         {
             try
             {

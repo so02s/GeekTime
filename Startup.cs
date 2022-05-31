@@ -26,7 +26,8 @@ namespace GeekTime
         public void ConfigureServices(IServiceCollection services)
         {
             // This method is used to add services to the container.
-            services.AddDbContext<GeekTimeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GeekTimeDBConnection"))); //ƒобавление подключени€ к серверу
+            string connection = Configuration.GetConnectionString("GeekTimeDBConnection"); //подключение к бд
+            services.AddDbContext<GeekTimeContext>(options => options.UseSqlServer(connection)); //добавление контекста
             services.AddControllersWithViews();
             services.AddMvc(option => option.EnableEndpointRouting = false);// поддержка MVC
             services.AddTransient<IAdminManager, AdminManager>();
@@ -37,7 +38,7 @@ namespace GeekTime
             app.UseStatusCodePages(); //отображение кодов страницы
             app.UseStaticFiles();  // отображение картинок, css
             app.UseMvcWithDefaultRoute(); //отслеживание URL-адреса (без полного адреса - по умолчанию)
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -52,7 +53,6 @@ namespace GeekTime
                 template: "{controller=ContactController}/{action=ContactPage}");
             });
             
-            SeedData.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);  //добавление первоначальной инициализации, смори Site_Data -> SeedData
             } //to configure the HTTP request pipeline.
 
 

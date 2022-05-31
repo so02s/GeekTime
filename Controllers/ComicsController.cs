@@ -22,7 +22,7 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateComics(string Name, string Genre, int Room)
+        public ActionResult CreateComics(string Name, string Genre, string Room)
         {
             try
             {
