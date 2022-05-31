@@ -18,7 +18,7 @@
             <th>Фотка</th>
         </tr>
         @{
-            foreach (var item in AdminList.admin)
+            foreach (var item in Model)
             {
                 <tr>
                     <td>@item.Name</td>
@@ -28,12 +28,6 @@
             }
         }
     </table>
-    @using (Html.BeginForm("CreateComics", "Home"))
-    {
-        <div>
-            <input type="submit" value="Добавить комикс" />
-        </div>
-    }
 </body>
 </html>
 

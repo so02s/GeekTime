@@ -1,5 +1,4 @@
-﻿@model IEnumerable<GeekTime.Models.Admin>
-@{
+﻿@{
     ViewData["Title"] = "Главная страница";
 }
 
@@ -14,19 +13,13 @@
 
     <link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="../../css/site.css">
 
 </head>
 
 <body>
-    <a asp-action="CreateAdmin">Добавить админа</a>
-    <table class="table">
-        <tr><td>Имя</td><td>Ивенты</td></tr>
-        @foreach (var item in Model)
-        {
-            <tr><td>@item.Name</td><td>@item.Events</td></tr>
-        }
-    </table>
 
     <div class="backimg">
         <hr class="hr-dashed">

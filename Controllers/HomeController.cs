@@ -36,7 +36,10 @@ namespace GeekTime.Controllers
         }
 
 
-
+        public IActionResult For_admins()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> Index()
         {

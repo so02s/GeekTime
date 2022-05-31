@@ -6,38 +6,129 @@
 
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-        <title>Антикафе GeekTime | Наша команда</title>
+    <title>Антикафе GeekTime | Наша команда</title>
 
-        <link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
+    <link rel="icon" href="/css/pics/icocat.png" type="image/x-icon">
 
-        <link rel="stylesheet" type="text/css" href="../../css/site.css">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <body>
-        <div class="backimg">
-            <img src="/css/pics/fon.jpg" align=center width="100%" height="100%">
-            <div class="title">Наша команда</div>
-        </div>
+    <link rel="stylesheet" type="text/css" href="../../css/site.css">
 
-        <div class="game_comics_admin_table">
-            <!--карточка админа-->
-            <div class="game_comics_admin_card"> 
-                <div class="game_comics_admin_desc">
-                    <div class="game_comics_admin_image">
-                        <img src="admin.jpg">
-                    </div>
-                    <div class="game_comics_admin_name"> NAME </div>
-                    <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
-                    <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
-                    <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT3</font></a></div>
+    <style>
+        img {
+            border-radius: 25px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .backimg {
+            position: relative;
+        }
+
+        .title {
+            display: inline-block;
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 15%;
+            text-align: center;
+            font-size: 8vw;
+            font-family: 'Underdog', cursive;
+            color: #ffffff;
+            text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+        }
+
+        .hr-dashed {
+            padding: 0;
+            height: 0;
+            border: none;
+            border-top: 5px dashed #ffb400;
+            clear: left;
+        }
+
+        .game_comics_admin_table {
+            display: block;
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 6%;
+            width: 100%;
+        }
+
+        .game_comics_admin_card {
+            display: block;
+            border: 3px solid #ff4f00;
+            border-radius: 10px;
+            position: relative;
+            float: left;
+            margin: 10px;
+            height: 60vh;
+        }
+
+        .game_comics_admin_desc {
+            position: relative;
+            padding: 20px;
+        }
+
+        .game_comics_admin_name {
+            text-align: center;
+            font-size: 60px;
+            font-family: 'Underdog', cursive;
+            line-height: 120%;
+            position: relative;
+        }
+
+        .game_comics_admin_image {
+            position: relative;
+            height: 35vh;
+        }
+
+            .game_comics_admin_image img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                max-width: 100%;
+                max-height: 100%;
+                margin: auto;
+            }
+
+        .admin_event {
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Underdog', cursive;
+            line-height: 120%;
+            position: relative;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backimg">
+        <img src="/css/pics/fon.jpg" align=center width="100%" height="100%">
+        <div class="title">Наша команда</div>
+    </div>
+
+    <div class="game_comics_admin_table">
+        <!--карточка админа-->
+        <div class="game_comics_admin_card">
+            <div class="game_comics_admin_desc">
+                <div class="game_comics_admin_image">
+                    <img src="admin.jpg">
                 </div>
+                <div class="game_comics_admin_name"> NAME </div>
+                <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
+                <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT1</font></a></div>
+                <div class="admin_event"><a href="events"><font color="#ff4f00">EVENT3</font></a></div>
             </div>
-        <!--сюда добавим еще карточек админов-->
         </div>
+        <!--сюда добавим еще карточек админов-->
+    </div>
 
-        <hr class="hr-dashed">
-    </body>
+    <hr class="hr-dashed">
+</body>
 </html>
