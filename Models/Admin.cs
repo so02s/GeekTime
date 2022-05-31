@@ -21,7 +21,7 @@ namespace GeekTime.Models
         {
             return $"Админ: {Name}, он ведет: {Events}, Вот как он выглядит: {Image}";
         }
- public Admin(string Name, string Events, string Image)
+        public Admin(string Name, string Events, string Image)
         {
             this.Name = Name;
             this.Events = Events;
