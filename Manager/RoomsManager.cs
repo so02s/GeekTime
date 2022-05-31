@@ -30,7 +30,7 @@ namespace GeekTime.Manager
            new Rooms("Тардис", "link to photo", "ничего :(", " + 300 рублей к чеку","link to DataBase"),
            new Rooms("Комиксная", "link to photo", "ничего :(", " + 200 рублей к чеку","link to DataBase"),
            new Rooms("VR-комната", "link to photo", "ничего :(", "150рублей/10 минут, 300рублей/30 минут","link to DataBase"),
-          };
+           };
         }
     }
 }

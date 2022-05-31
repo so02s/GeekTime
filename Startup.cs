@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using GeekTime.Manager;
+using Microsoft.EntityFrameworkCore;
+using GeekTime.Site_Data;
 
 namespace GeekTime
 {
@@ -24,6 +26,8 @@ namespace GeekTime
         public void ConfigureServices(IServiceCollection services)
         {
             // This method is used to add services to the container.
+            string connection = Configuration.GetConnectionString("GeekTimeDBConnection"); //подключение к бд
+            services.AddDbContext<GeekTimeContext>(options => options.UseSqlServer(connection)); //добавление контекста
             services.AddControllersWithViews();
             services.AddMvc(option => option.EnableEndpointRouting = false);// поддержка MVC
             services.AddTransient<IAdminManager, AdminManager>();
@@ -34,7 +38,7 @@ namespace GeekTime
             app.UseStatusCodePages(); //отображение кодов страницы
             app.UseStaticFiles();  // отображение картинок, css
             app.UseMvcWithDefaultRoute(); //отслеживание URL-адреса (без полного адреса - по умолчанию)
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -48,8 +52,8 @@ namespace GeekTime
                 name: "contact",
                 template: "{controller=ContactController}/{action=ContactPage}");
             });
-
-        } //to configure the HTTP request pipeline.
+            
+            } //to configure the HTTP request pipeline.
 
 
     }

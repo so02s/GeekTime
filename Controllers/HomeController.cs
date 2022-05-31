@@ -6,21 +6,41 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using GeekTime.Site_Data;
 
 namespace GeekTime.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private GeekTimeContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, GeekTimeContext context)
         {
             _logger = logger;
+            db = context;
         }
 
-        public IActionResult Index()
+
+        public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateAdmin(Admin admin)
+        {
+            db.Admins.Add(admin);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
+
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Admins.ToListAsync());
         }
         public IActionResult AdminPage()
         {
