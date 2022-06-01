@@ -28,7 +28,7 @@ namespace GeekTime.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTimetableRent(TimetableRent timetableRent)
         {
-            await _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data, timetableRent.RateID);
+            await _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data);
             return RedirectToAction("Index");
         }
 
@@ -50,7 +50,7 @@ namespace GeekTime.Controllers
 
         [HttpPut]
         [Route("timetableRents")]
-        public Task AddTimetableRent([FromBody] TimetableRent timetableRent) => _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data, timetableRent.RateID);
+        public Task AddTimetableRent([FromBody] TimetableRent timetableRent) => _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data);
 
         [HttpDelete]
         [Route("timetableRents/{id}")]

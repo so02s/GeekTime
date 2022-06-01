@@ -10,7 +10,7 @@ namespace GeekTime.Manager
     public interface ITimetableRentManager
     {
         Task<IList<TimetableRent>> GetAll();
-        Task AddTimetableRent(int Time, string Data, int RateID);
+        Task AddTimetableRent(int Time, string Data);
         Task DeleteTimetableRent(int id);
     }
     public class TimetableRentManager : ITimetableRentManager
@@ -21,9 +21,9 @@ namespace GeekTime.Manager
         {
             _context = context;
         }
-        public async Task AddTimetableRent(int Time, string Data, int RateID)
+        public async Task AddTimetableRent(int Time, string Data)
         {
-            var timetableRent = new TimetableRent(Time,  Data, RateID);
+            var timetableRent = new TimetableRent(Time, Data);
             _context.TimetableRents.Add(timetableRent);
             await _context.SaveChangesAsync();
         }

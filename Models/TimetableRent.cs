@@ -13,18 +13,14 @@ namespace GeekTime.Models
         public string Data { get; set; } //дата
         public int RateID { get; set; } //цены
 
-        [ForeignKey(nameof(RateID))]
-        public virtual Rate Rates { get; set; }
-
         public TimetableRent()
         {
 
         }
-        public TimetableRent(int Time, string Data, int Rate)
+        public TimetableRent(int Time, string Data)
         {
             this.Time = Time;
             this.Data = Data;
-            this.RateID = Rate;
         }
     }
 }
