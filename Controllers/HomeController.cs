@@ -32,28 +32,16 @@ namespace GeekTime.Controllers
         {
             return View(await db.Admins.ToListAsync());
         }
-        public IActionResult ContactPage()
-        {
-            return View();
-        }
-        public IActionResult CreateContact()
-        {
-            return View();
-        }
-        public IActionResult PostsPage()
-        {
-            return View();
-        }
-        public IActionResult CreatePost()
-        {
-            return View();
-        }
 
         public async Task<IActionResult> Admins()
         {
             return View(await db.Admins.ToListAsync());
         }
         public IActionResult Rooms()
+        {
+            return View();
+        }
+        public IActionResult Price()
         {
             return View();
         }

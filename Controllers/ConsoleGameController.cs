@@ -8,10 +8,10 @@ using GeekTime.Models;
 
 namespace GeekTime.Controllers
 {
-    public class ConsoleGamesController : Controller
+    public class ConsoleGameController : Controller
     {
         private IConsoleGameManager _consolegameManager;
-        public ConsoleGamesController(IConsoleGameManager consolegameManager)
+        public ConsoleGameController(IConsoleGameManager consolegameManager)
         {
             _consolegameManager = consolegameManager;
         }

@@ -37,6 +37,7 @@ namespace GeekTime
             services.AddTransient<IBoardGameManager, BoardGameManager>();
             services.AddTransient<IComicManager, ComicManager>();
             services.AddTransient<IConsoleGameManager, ConsoleGameManager>();
+            services.AddTransient<IContactManager, ContactManager>();
             services.AddTransient<IPostManager, PostManager>();
             services.AddTransient<IRateManager, RateManager>();
             services.AddTransient<IRoomManager, RoomManager>();

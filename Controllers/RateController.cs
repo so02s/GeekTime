@@ -8,10 +8,10 @@ using GeekTime.Models;
 
 namespace GeekTime.Controllers
 {
-    public class RatesController : Controller
+    public class RateController : Controller
     {
         private IRateManager _rateManager;
-        public RatesController(IRateManager rateManager)
+        public RateController(IRateManager rateManager)
         {
             _rateManager = rateManager;
         }

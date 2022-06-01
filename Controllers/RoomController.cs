@@ -8,10 +8,10 @@ using GeekTime.Models;
 
 namespace GeekTime.Controllers
 {
-    public class RoomsController : Controller
+    public class RoomController : Controller
     {
         private IRoomManager _roomManager;
-        public RoomsController(IRoomManager roomManager)
+        public RoomController(IRoomManager roomManager)
         {
             _roomManager = roomManager;
         }
