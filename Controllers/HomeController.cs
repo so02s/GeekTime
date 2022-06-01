@@ -69,9 +69,9 @@ namespace GeekTime.Controllers
         {
             return View();
         }
-        public IActionResult Price()
+        public async Task<IActionResult> Rate()
         {
-            return View();
+            return View(await db.Rates.ToListAsync());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
