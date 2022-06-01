@@ -1,0 +1,36 @@
+﻿@model GeekTime.Models.ConsoleGame
+@{
+    ViewBag.Title = "Добавление консольной игры";
+}
+
+<form asp-action="createConsoleGame" asp-controller="ConsoleGame">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaxPlayers" class="control-label">Максимальное количество игроков</label>
+        <input type="text" asp-for="MaxPlayers" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WhatConsole" class="control-label">Тип консоли</label>
+        <input type="text" asp-for="WhatConsole" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Photo" class="control-label">Картинка</label>
+        <input type="text" asp-for="Photo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomID" class="control-label">ID комнаты</label>
+        <input type="text" asp-for="RoomID" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>
+

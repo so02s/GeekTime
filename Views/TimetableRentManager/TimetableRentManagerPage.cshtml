@@ -1,0 +1,35 @@
+﻿@model IList<GeekTime.Models.TimetableRent>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TimetableRentPage</title>
+</head>
+<body>
+    <h1>Расписание броней:</h1>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Id</th>
+            <th>Время</th>
+            <th>Даты</th>
+            <th>Цены ID</th>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Time</td>
+                    <td>@item.Data</td>
+                    <td>@item.RateID</td>
+                </tr>
+            }
+        }
+    </table>
+    <a asp-area="" asp-controller="TimetableRent" asp-action="CreateTimetableRent">Добавить бронь</a>
+    <a asp-area="" asp-controller="TimetableRent" asp-action="DeleteTimetableRent">Удалить бронь</a>
+</body>
+</html>
+

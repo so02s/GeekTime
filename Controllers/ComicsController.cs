@@ -8,32 +8,52 @@ using GeekTime.Models;
 
 namespace GeekTime.Controllers
 {
-    public class ComicsController : Controller
+    public class ComicController : Controller
     {
-        private IComicsManager _comicsManager;
-        public ComicsController(IComicsManager comicsManager)
+        private IComicManager _comicManager;
+        public ComicController(IComicManager comicManager)
         {
-            _comicsManager = comicsManager;
+            _comicManager = comicManager;
         }
-        public ViewResult ComicsPage()
+        public async Task<IActionResult> ComicPage()
         {
-            var comics = _comicsManager.сomics;
+            var comics = await _comicManager.GetAll();
             return View(comics);
         }
 
-        [HttpPost]
-        public ActionResult CreateComics(string Name, string Genre, string Room)
+        public IActionResult CreateComic()
         {
-            try
-            {
-                _comicsManager.AddComics(new Comic(Name, Genre, Room));
-                return RedirectToAction(nameof(ComicsPage));
-            }
-            catch
-            {
-                return RedirectToAction(nameof(ComicsPage));
-            }
+            return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateComic(Comic comic)
+        {
+            await _comicManager.AddComic(comic.Name, comic.Genre, comic.RoomID);
+            return RedirectToAction(nameof(ComicPage));
+        }
+        public IActionResult DeleteComic()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteComic(Comic comic)
+        {
+            await _comicManager.DeleteComic(comic.ID);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Route("Comics")]
+        public Task<IList<Comic>> GetAll() => _comicManager.GetAll();
+
+        [HttpPut]
+        [Route("Comics")]
+        public Task AddAdmin([FromBody] Comic comic) => _comicManager.AddComic(comic.Name, comic.Genre, comic.RoomID);
+
+        [HttpDelete]
+        [Route("Comics/{id}")]
+        public Task DeleteAdmin(int id) => _comicManager.DeleteComic(id);
     }
 }
 

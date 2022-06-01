@@ -1,0 +1,23 @@
+﻿@model GeekTime.Models.TimetableRent
+@{
+    ViewBag.Title = "Добавление брони";
+}
+
+
+<form asp-action="createTimetableRent" asp-controller="TimetableRent">
+    <div class="form-group">
+        <label asp-for="Time" class="control-label">Время</label>
+        <input type="text" asp-for="Time" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Data" class="control-label">Дата</label>
+        <input type="text" asp-for="Data" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RateID" class="control-label">Цены ID</label>
+        <input type="text" asp-for="RateID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

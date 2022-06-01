@@ -1,0 +1,38 @@
+﻿@model IList<GeekTime.Models.BoardGame>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>BoardGamePage</title>
+    </head>
+
+    <body>
+        <h1>Настольные игры:</h1>
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Максимальное количество игроков</th>
+                <th>Время игры</th>
+                <th>Фото</th>
+                <th>ID комнаты</th>
+            </tr>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Name</td>
+                        <td>@item.MaxPlayers</td>
+                        <td>@item.Playtime</td>
+                        <td>@item.Photo</td>
+                        <td>@item.RoomID</td>
+                    </tr>
+                }
+            }
+        </table>
+        <a asp-area="" asp-controller="BoardGame" asp-action="CreateBoardGame">Добавить настольную игру</a>
+        <a asp-area="" asp-controller="BoardGame" asp-action="DeleteBoardGame">Удалить настольную игру</a>
+    </body>
+</html>

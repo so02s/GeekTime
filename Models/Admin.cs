@@ -6,7 +6,7 @@ namespace GeekTime.Models
     {
         [Key]
         public int ID { get; set; }
-        [Required]
+        [Required (ErrorMessage = "Имя должно быть заполнено")]
         public string Name { get; set; }
         public string Events { get; set; }
         [Required]
@@ -23,6 +23,10 @@ namespace GeekTime.Models
             this.Name = Name;
             this.Events = Events;
             this.Image = Image;
+        }
+        public bool IsValid()
+        {
+            return false;
         }
     }
 }

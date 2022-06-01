@@ -1,6 +1,4 @@
-﻿@using GeekTime.Models
-@using GeekTime.Manager
-@model IEnumerable<Post>
+﻿@model IList<GeekTime.Models.Post>
 
 <!DOCTYPE html>
 <html>
@@ -12,15 +10,17 @@
     <h1>Посты GeekTime:</h1>
     <table border="1" width="100%" cellpadding="5">
         <tr>
-            <th>Должность</th>
-            <th>Имя</th>
-            <th>телефон</th>
-            <th>почта</th>
+            <th>ID</th>
+            <th>Ссылка на вк</th>
+            <th>Картинка</th>
+            <th>Описание</th>
+            <th>ID Админа</th>
         </tr>
         @{
-            foreach (var item in PostsList.postlist)
+            foreach (var item in Model)
             {
                 <tr>
+                    <td>@item.ID</td>
                     <td>@item.Vk_link</td>
                     <td>@item.Image</td>
                     <td>@item.Describtion</td>
@@ -29,12 +29,8 @@
             }
         }
     </table>
-    @using (Html.BeginForm("CreatePost", "Home"))
-    {
-        <div>
-            <input type="submit" value="Добавить пост" />
-        </div>
-    }
+    <a asp-area="" asp-controller="Post" asp-action="CreatePost">Добавить пост</a>
+    <a asp-area="" asp-controller="Post" asp-action="DeletePost">Удалить пост</a>
 </body>
 
 </html>

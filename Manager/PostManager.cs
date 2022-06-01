@@ -3,36 +3,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace GeekTime.Manager
 {
-    public interface IPostsManager
+    public interface IPostManager
     {
-        IEnumerable<Post> Post { get; }
-        IEnumerable<Post> GetPostByAdmin(string Admin);
-        void AddPost(Post post);
+        Task<IList<Post>> GetAll();
+        Task AddPost(string Vk_link, string Image, string Describtion, int AdminID);
+        Task DeletePost(int id);
     }
-    public class PostManager : IPostsManager
+    public class PostManager : IPostManager
     {
-        public IEnumerable<Post> Post => PostsList.postlist;
+        private readonly GeekTime.Site_Data.GeekTimeContext _context;
 
-        public void AddPost(Post post)
+        public PostManager(GeekTime.Site_Data.GeekTimeContext context)
         {
-            PostsList.postlist.Add(post);
+            _context = context;
+        }
+        public async Task AddPost(string Vk_link, string Image, string Describtion, int AdminID)
+        {
+            var post = new Post(Vk_link, Image, Describtion, AdminID);
+            _context.Posts.Add(post);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeletePost(int id)
+        {
+            var post = _context.Posts.Find(id);
+            if (post != null)
+            {
+                _context.Posts.Remove(post);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public IEnumerable<Post> GetPostByAdmin(string Admin)
-        {
-            return PostsList.postlist.Where(post => post.Admin.ToLower() ==
-           Admin.ToLower());
-        }
-    }
-    public static class PostsList
-    {
-        public static List<Post> postlist = new List<Post>()
-        {
-             new Post("link to VK", "link to image", "describtion", "link to admin"),
-             new Post("link to VK", "link to image", "describtion", "link to admin"),
-        };
+        public async Task<IList<Post>> GetAll() => await _context.Posts.ToListAsync();
     }
 }

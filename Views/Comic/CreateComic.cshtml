@@ -1,0 +1,25 @@
+﻿@model GeekTime.Models.Comic
+@{
+    ViewBag.Title = "Добавление комикса";
+}
+
+<form asp-action="createComic" asp-controller="Comic">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genre" class="control-label">Жанр</label>
+        <input type="text" asp-for="Genre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomID" class="control-label">ID комнаты</label>
+        <input type="text" asp-for="RoomID" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

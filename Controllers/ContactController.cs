@@ -10,32 +10,49 @@ namespace GeekTime.Controllers
 {
     public class ContactController : Controller
     {
-        private IContactsManager _contactManager;
-        public ContactController(IContactsManager contactManager)
+        private IContactManager _contactManager;
+        public ContactController(IContactManager contactManager)
         {
             _contactManager = contactManager;
         }
-        public ViewResult ContactPage()
+        public async Task<IActionResult> ContactPage()
         {
-            var contacts = _contactManager.Person;
-            return View(contacts);
+            var cg = await _contactManager.GetAll();
+            return View(cg);
         }
-        public ViewResult CreateContacts()
+        public IActionResult CreateContact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateContact(Contact contact)
+        {
+            await _contactManager.AddContact(contact.Name, contact.TelNumber, contact.Mail, contact.Post);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteContact()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult CreateContacts(string Name, long TelNumber, string Mail, string Post)
+        public async Task<IActionResult> DeleteContact(Contact contact)
         {
-            try
-            {
-                _contactManager.AddPerson(new Contacts(Name, Convert.ToInt32(TelNumber), Mail, Post));
-                return RedirectToAction(nameof(ContactPage));
-            }
-            catch
-            {
-                return RedirectToAction(nameof(ContactPage));
-            }
+            await _contactManager.DeleteContact(contact.ID);
+            return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("contacts")]
+        public Task<IList<Contact>> GetAll() => _contactManager.GetAll();
+
+        [HttpPut]
+        [Route("contacts")]
+        public Task AddContact([FromBody] Contact contact) => _contactManager.AddContact(contact.Name, contact.TelNumber, contact.Mail, contact.Post);
+
+        [HttpDelete]
+        [Route("contacts/{id}")]
+        public Task DeleteContact(int id) => _contactManager.DeleteContact(id);
     }
 }

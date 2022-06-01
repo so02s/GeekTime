@@ -1,0 +1,13 @@
+﻿@model GeekTime.Models.Comic
+@{
+    ViewBag.Title = "Удаление комикса";
+}
+<form asp-action="deleteComic" asp-controller="Comic">
+    <div class="form-group">
+        <label asp-for="ID" class="control-label">ID</label>
+        <input type="number" asp-for="ID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

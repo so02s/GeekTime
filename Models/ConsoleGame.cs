@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekTime.Models
 {
-    public class ConsoleGames
+    public class ConsoleGame
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
@@ -18,18 +14,22 @@ namespace GeekTime.Models
         [Required]
         public string WhatConsole { get; set; }
         public string Photo { get; set; }
-        public string Room { get; set; }
+        public int RoomID { get; set; }
 
-        [ForeignKey(nameof(Room))]
-        public virtual Rooms Rooms { get; set; }
+        [ForeignKey(nameof(RoomID))]
+        public virtual Room Rooms { get; set; }
 
-        public ConsoleGames(string Name, int MaxPlayers, string WhatConsole, string Photo, string Room)
+        public ConsoleGame()
+        {
+
+        }
+        public ConsoleGame(string Name, int MaxPlayers, string WhatConsole, string Photo, int Room)
         {
             this.Name = Name;
             this.MaxPlayers = MaxPlayers;
             this.WhatConsole = WhatConsole;
             this.Photo = Photo;
-            this.Room = Room;
+            this.RoomID = Room;
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model IList<GeekTime.Models.Room>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RoomPage</title>
+</head>
+<body>
+    <h1>Комнаты гиктайма:</h1>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Картинка</th>
+            <th>Ивент Id</th>
+            <th>Цены Id</th>
+            <th>Расписание брони Id</th>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Image</td>
+                    <td>@item.EventId</td>
+                    <td>@item.RateID</td>
+                    <td>@item.TimetableRentID</td>
+                </tr>
+            }
+        }
+    </table>
+    <a asp-area="" asp-controller="Room" asp-action="CreateRoom">Добавить комнату</a>
+    <a asp-area="" asp-controller="Room" asp-action="DeleteRoom">Удалить комнату</a>
+</body>
+</html>
+

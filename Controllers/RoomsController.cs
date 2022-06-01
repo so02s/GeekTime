@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +10,51 @@ namespace GeekTime.Controllers
 {
     public class RoomsController : Controller
     {
-        private IRoomsManager _roomsManager;
-        public RoomsController(IRoomsManager roomsManager)
+        private IRoomManager _roomManager;
+        public RoomsController(IRoomManager roomManager)
         {
-            _roomsManager = roomsManager;
+            _roomManager = roomManager;
         }
-        public ViewResult RoomsPage()
+        public async Task<IActionResult> RoomPage()
         {
-            var room = _roomsManager.rooms;
-            return View(room);
+            var cg = await _roomManager.GetAll();
+            return View(cg);
         }
+
+        public IActionResult CreateRoom()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateRoom(Room room)
+        {
+            await _roomManager.AddRoom(room.Name, room.Image, room.EventId, room.RateID, room.TimetableRentID);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteRoom()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteRoom(Room room)
+        {
+            await _roomManager.DeleteRoom(room.ID);
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpGet]
+        [Route("rooms")]
+        public Task<IList<Room>> GetAll() => _roomManager.GetAll();
+
+        [HttpPut]
+        [Route("rooms")]
+        public Task AddRoom([FromBody] Room room) => _roomManager.AddRoom(room.Name, room.Image, room.EventId, room.RateID, room.TimetableRentID);
+
+        [HttpDelete]
+        [Route("rooms/{id}")]
+        public Task DeleteRoom(int id) => _roomManager.DeleteRoom(id);
 
     }
 }

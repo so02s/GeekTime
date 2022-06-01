@@ -33,6 +33,21 @@
 @{
     ViewBag.Title = "Добавление админа";
 }
+
+<!--
+<script type="text/javascript">
+    function validate_form() {
+        valid = true;
+        if (Name == null || Image == null) {
+            alert("Пожалуйста заполните все обязательные поля");
+            valid = false;
+        }
+        return valid;
+    }
+</script>
+-->
+
+
 <form asp-action="createadmin" asp-controller="admin">
     <div class="form-group">
         <label asp-for="Name" class="control-label">Имя</label>

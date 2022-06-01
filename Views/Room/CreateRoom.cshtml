@@ -1,0 +1,31 @@
+﻿@model GeekTime.Models.Room  
+@{
+    ViewBag.Title = "Добавление комнаты";
+}
+
+
+<form asp-action="createroom" asp-controller="room">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">Картинка</label>
+        <input type="text" asp-for="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EventId" class="control-label">Ивент</label>
+        <input type="text" asp-for="EventId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RateID" class="control-label">Цена ID</label>
+        <input type="text" asp-for="RateID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TimetableRentID" class="control-label">Временные рамки ID</label>
+        <input type="text" asp-for="TimetableRentID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

@@ -1,0 +1,13 @@
+﻿@model GeekTime.Models.Room
+@{
+    ViewBag.Title = "Удаление комнаты";
+}
+<form asp-action="deleteroom" asp-controller="room">
+    <div class="form-group">
+        <label asp-for="ID" class="control-label">ID</label>
+        <input type="number" asp-for="ID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

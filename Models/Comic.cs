@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekTime.Models
@@ -16,16 +12,20 @@ namespace GeekTime.Models
         [Required]
         public string Genre { get; set; }
         [Required]
-        public string Room { get; set; }
+        public int RoomID { get; set; }
 
-        [ForeignKey(nameof(Room))]
-        public virtual Rooms Rooms { get; set; }
+        [ForeignKey(nameof(RoomID))]
+        public virtual Room Rooms { get; set; }
 
-        public Comic(string Name, string Genre, string Room)
+        public Comic()
+        {
+
+        }
+        public Comic(string Name, string Genre, int Room)
         {
             this.Name = Name;
             this.Genre = Genre;
-            this.Room = Room;
+            this.RoomID = Room;
         }
     }
 }

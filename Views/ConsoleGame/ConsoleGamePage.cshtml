@@ -1,0 +1,38 @@
+﻿@model IList<GeekTime.Models.ConsoleGame>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsoleGamePage</title>
+</head>
+
+<body>
+    <h1>Консольные игры:</h1>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Id</th>
+            <th>Название</th>
+            <th>Максимальное количество игроков</th>
+            <th>Тип консоли</th>
+            <th>Фото</th>
+            <th>ID комнаты</th>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.MaxPlayers</td>
+                    <td>@item.WhatConsole</td>
+                    <td>@item.Photo</td>
+                    <td>@item.RoomID</td>
+                </tr>
+            }
+        }
+    </table>
+    <a asp-area="" asp-controller="ConsoleGame" asp-action="CreateConsoleGame">Добавить консольную игру</a>
+    <a asp-area="" asp-controller="ConsoleGame" asp-action="DeleteConsoleGame">Удалить консольную игру</a>
+</body>
+</html>

@@ -1,11 +1,12 @@
-﻿@model GeekTime.Models.Event
+﻿@model GeekTime.Models.Post
 @{
-    ViewBag.Title = "Добавление ивента";
+    ViewBag.Title = "Добавление поста";
 }
-<form asp-action="createevent" asp-controller="event">
+
+<form asp-action="createpost" asp-controller="post">
     <div class="form-group">
-        <label asp-for="Name" class="control-label">Название</label>
-        <input type="text" asp-for="Name" class="form-control" />
+        <label asp-for="Vk_link" class="control-label">Ссылка на вк</label>
+        <input type="text" asp-for="Vk_link" class="form-control" />
     </div>
     <div class="form-group">
         <label asp-for="Image" class="control-label">Картинка</label>
@@ -16,10 +17,11 @@
         <input type="text" asp-for="Describtion" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="AdminID" class="control-label">Админ ID</label>
-        <input type="number" asp-for="AdminID" class="form-control" />
+        <label asp-for="AdminID" class="control-label">ID Админа</label>
+        <input type="text" asp-for="AdminID" class="form-control" />
     </div>
     <div class="form-group">
         <input type="submit" value="Отправить" class="btn btn-default" />
     </div>
 </form>
+</html>

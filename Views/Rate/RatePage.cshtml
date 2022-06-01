@@ -1,0 +1,33 @@
+﻿@model IList<GeekTime.Models.Rate>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RatePage</title>
+</head>
+<body>
+    <h1>Цены гиктайма:</h1>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Id</th>
+            <th>Зв что</th>
+            <th>Цена</th>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Cost</td>
+                </tr>
+            }
+        }
+    </table>
+    <a asp-area="" asp-controller="Rate" asp-action="CreateRate">Добавить цену</a>
+    <a asp-area="" asp-controller="Rate" asp-action="DeleteRate">Удалить цену</a>
+</body>
+</html>
+

@@ -10,29 +10,50 @@ namespace GeekTime.Controllers
 {
     public class PostController : Controller
     {
-        private IPostsManager _postManager;
-        public PostController(IPostsManager postManager)
+        private IPostManager _postManager;
+        public PostController(IPostManager postManager)
         {
             _postManager = postManager;
         }
-        public ViewResult PostPage()
+        public async Task<IActionResult> PostPage()
         {
-            var posts = _postManager.Post;
-            return View(posts);
+            var cg = await _postManager.GetAll();
+            return View(cg);
+        }
+        
+        public IActionResult CreatePost()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreatePost(Post post)
+        {
+            await _postManager.AddPost(post.Vk_link, post.Image, post.Describtion, post.AdminID);
+            return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult CreatePost(string Vk_link, string Image, string Describtion, string Admin)
+        public IActionResult DeletePost()
         {
-            try
-            {
-                _postManager.AddPost(new Post(Vk_link, Image, Describtion, Admin));
-                return RedirectToAction(nameof(PostPage));
-            }
-            catch
-            {
-                return RedirectToAction(nameof(PostPage));
-            }
+            return View();
+        }    
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(Post post)
+        {
+            await _postManager.DeletePost(post.ID);
+            return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        [Route("posts")]
+        public Task<IList<Post>> GetAll() => _postManager.GetAll();
+
+        [HttpPut]
+        [Route("posts")]
+        public Task AddPost([FromBody] Post post) => _postManager.AddPost(post.Vk_link, post.Image, post.Describtion, post.AdminID);
+
+        [HttpDelete]
+        [Route("posts/{id}")]
+        public Task DeletePost(int id) => _postManager.DeletePost(id);
     }
 }

@@ -23,6 +23,7 @@ namespace GeekTime.Manager
         {
             _context = context;
         }
+
         public async Task AddEvent(string _name, string _image, string _describtion, int _adminID)
         {
             var _event = new Event(_name, _image, _describtion, _adminID);

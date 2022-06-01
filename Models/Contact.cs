@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 namespace GeekTime.Models
 {
-    public class Contacts
+    public class Contact
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
@@ -19,7 +14,12 @@ namespace GeekTime.Models
         [Required]
         public string Post { get; set; } //должность
         public override string ToString() => $"{Post}: {Name} - {TelNumber}, {Mail}";
-        public Contacts(string Name, long TelNumber, string Mail, string Post)
+
+        public Contact()
+        {
+
+        }
+        public Contact(string Name, long TelNumber, string Mail, string Post)
         {
             this.Name = Name;
             this.TelNumber = TelNumber;

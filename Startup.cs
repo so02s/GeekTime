@@ -30,7 +30,17 @@ namespace GeekTime
             services.AddDbContext<GeekTimeContext>(options => options.UseSqlServer(connection)); //добавление контекста
             services.AddControllersWithViews();
             services.AddMvc(option => option.EnableEndpointRouting = false);// поддержка MVC
+
+            //связи сервисов
             services.AddTransient<IAdminManager, AdminManager>();
+            services.AddTransient<IEventManager, EventManager>();
+            services.AddTransient<IBoardGameManager, BoardGameManager>();
+            services.AddTransient<IComicManager, ComicManager>();
+            services.AddTransient<IConsoleGameManager, ConsoleGameManager>();
+            //services.AddTransient<IPostManager, PostManager>();
+            services.AddTransient<IRateManager, RateManager>();
+            services.AddTransient<IRoomManager, RoomManager>();
+            services.AddTransient<ITimetableRentManager, TimetableRentManager>();
         } //для регистрации плагинов в проекте
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

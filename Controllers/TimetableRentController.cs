@@ -10,29 +10,50 @@ namespace GeekTime.Controllers
 {
     public class TimetableRentController : Controller
     {
-            private ITimetableRentManager _timetableManager;
-            public TimetableRentController(ITimetableRentManager timetableManager)
-            {
-                _timetableManager = timetableManager;
-            }
-            public ViewResult TimetablePage()
-            {
-                var tt = _timetableManager.Timetable;
-                return View(tt);
-            }
-
-            [HttpPost]
-            public ActionResult CreateTimetable(int Time, string Data, int Rate)
+        private ITimetableRentManager _timetableRentManager;
+        public TimetableRentController(ITimetableRentManager timetableRentManager)
         {
-                try
-                {
-                    _timetableManager.AddTimetableRent(new TimetableRent(Time, Data, Rate));
-                    return RedirectToAction(nameof(TimetablePage));
-                }
-                catch
-                {
-                    return RedirectToAction(nameof(TimetablePage));
-                }
-            }
+            _timetableRentManager = timetableRentManager;
         }
+        public async Task<IActionResult> TimetableRentPage()
+        {
+            var cg = await _timetableRentManager.GetAll();
+            return View(cg);
+        }
+
+        public IActionResult CreateTimetableRent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateTimetableRent(TimetableRent timetableRent)
+        {
+            await _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data, timetableRent.RateID);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteTimetableRent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteTimetableRent(TimetableRent timetableRent)
+        {
+            await _timetableRentManager.DeleteTimetableRent(timetableRent.ID);
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpGet]
+        [Route("timetableRents")]
+        public Task<IList<TimetableRent>> GetAll() => _timetableRentManager.GetAll();
+
+        [HttpPut]
+        [Route("timetableRents")]
+        public Task AddTimetableRent([FromBody] TimetableRent timetableRent) => _timetableRentManager.AddTimetableRent(timetableRent.Time, timetableRent.Data, timetableRent.RateID);
+
+        [HttpDelete]
+        [Route("timetableRents/{id}")]
+        public Task DeleteTimetableRent(int id) => _timetableRentManager.DeleteTimetableRent(id);
+    }
 }

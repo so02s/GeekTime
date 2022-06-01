@@ -1,8 +1,406 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Underdog&display=swap');
+
+body {
+    background: #fffdd0;
+    padding: 150px;
+}
+
+#toTop {
+    position: fixed;
+    z-index: 5;
+    display: none;
+    bottom: 25px;
+    right: 25px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+    #toTop i {
+        width: 100px;
+        height: 100px;
+        display: block;
+        color: #ffffff;
+        background: #ff4f00;
+        text-align: center;
+        font-size: 80px;
+        border-radius: 50px;
+        transition: .3s;
+    }
+
+#menu__toggle {
+    opacity: 0;
+}
+
+    #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+    }
+
+        #menu__toggle:checked ~ .menu__btn > span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+
+        #menu__toggle:checked ~ .menu__btn > span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+    #menu__toggle:checked ~ .menu__box {
+        visibility: visible;
+        left: 0;
+    }
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 10%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        transition-duration: .25s;
+    }
+
+        .menu__btn > span::before {
+            content: '';
+            top: -8px;
+        }
+
+        .menu__btn > span::after {
+            content: '';
+            top: 8px;
+        }
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    overflow: hidden;
+    top: 0;
+    left: -100%;
+    z-index: 1;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    padding: 150px 0;
+    list-style: none;
+    background-color: #ffb400;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition-duration: .25s;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #fffdd0;
+    text-align: center;
+    font-family: 'Underdog', cursive;
+    font-size: 2vh;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+    .menu__item:hover {
+        background-color: #ff4f00;
+    }
+
+header {
+    top: 0;
+    left: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 110px;
+    font-family: 'Underdog', cursive;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 150px;
+    background-color: #ffb400;
+}
+
+footer {
+    padding: 20px 0px;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+    background-color: #ff4f00;
+    width: 100%;
+    height: 415px;
+}
+
+table {
+    width: 100%;
+    height: 200%;
+    border-collapse: collapse;
+    color: #000000;
+}
+
+tr {
+    height: 600px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Underdog', cursive;
+    line-height: 190%;
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Underdog', cursive;
+    line-height: 90%;
+    position: relative;
+}
+
+    h2::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffb40080;
+        border-radius: 25px;
+        z-index: -1;
+    }
+
+h3 {
+    position: relative;
+    text-align: center;
+    font-size: 120px;
+    font-family: 'Underdog', cursive;
+    line-height: 90%;
+}
+
+    h3::before {
+        content: '';
+        position: absolute;
+        bottom: 35%;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background-color: #ffb400;
+        z-index: -1;
+    }
+
+h4 {
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Underdog', cursive;
+    line-height: 150%;
+    position: relative;
+    clear: left;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+}
+
+    h4::before {
+        content: '';
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        top: -25%;
+        width: 50%;
+        height: 150%;
+        background-color: #faf7b4;
+        z-index: -1;
+        border-radius: 25px;
+    }
+
+p {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Underdog', cursive;
+    line-height: 100%;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+img {
+    border-radius: 25px;
+    max-width: 100%;
+    height: auto;
+}
+
+.backimg {
+    position: relative;
+}
+
+.main-text {
+    display: inline-block;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 20%;
+    text-align: center;
+    font-size: 8vw;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+}
+
+.title {
+    display: inline-block;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 15%;
+    text-align: center;
+    font-size: 8vw;
+    font-family: 'Underdog', cursive;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+}
+
+.liltitle {
+    display: inline-block;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 15%;
+    text-align: center;
+    font-size: 7vw;
+    font-family: 'Underdog', cursive;
+    color: #ffffff;
+    text-shadow: #000 1px 1px 5px, #000 1px 1px 5px, #000 1px -1px 5px, #000 -1px 1px 5px;
+    background-color: #00000060;
+}
+
+.hr-dashed {
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 5px dashed #ffb400;
+    clear: left;
+}
+
+.hr1-dashed {
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 5px dashed #ff4f00;
+}
+
+.mirror {
+    transform: scale(-1, 1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 15px;
+}
+
+    .social-icons a {
+        background: #ffb400;
+        color: #ffffff;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        position: relative;
+        margin: 5px;
+        text-align: center;
+        font-size: 35px;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+
+        .social-icons a i {
+            z-index: 2;
+            position: relative;
+            line-height: 60px;
+        }
+
+        .social-icons a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100%;
+            width: 0;
+            height: 0;
+            transition: 0.3s;
+            top: 0;
+            left: 50%;
+        }
+
+        .social-icons a:hover:after {
+            width: 60px;
+            height: 60px;
+            margin-left: -30px;
+        }
+
+.social-icon-vk:after,
+.social-icon-vk:hover:after {
+    background: #45668e;
+}
+
+.social-icon-tg:after,
+.social-icon-tg:hover:after {
+    background: #2ca5e0;
+}
+
+.social-icon-fb:after,
+.social-icon-fb:hover:after {
+    background: #3b5998;
+}
+
+.social-icon-ig:after,
+.social-icon-ig:hover:after {
+    background: #e1306c;
+}
+
+.social-icon-yt:after,
+.social-icon-yt:hover:after {
+    background: #bb0000;
+}
 
 @media (min-width: 2000px) {
     .game_comics_admin_card {
         width: 20%;
+    }
+
+    .price_name {
+        font-size: 4vh;
+    }
+
+        .price_name a {
+            font-size: 4.5vh;
+        }
+
+    .stopc_desc {
+        font-size: 3.5vh;
+    }
+
+    .cost {
+        font-size: 3.5vh;
     }
 }
 
@@ -10,11 +408,44 @@
     .game_comics_admin_card {
         width: 25%;
     }
+
+    .price_name {
+        font-size: 3.5vh;
+    }
+
+
+        .price_name a {
+            font-size: 4vh;
+        }
+
+    .stopc_desc {
+        font-size: 3vh;
+    }
+
+    .cost {
+        font-size: 3vh;
+    }
 }
 
 @media (max-width: 1200px) {
     .game_comics_admin_card {
         width: 33.3333333%;
+    }
+
+    .price_name {
+        font-size: 2.5vh;
+    }
+
+        .price_name a {
+            font-size: 3vh;
+        }
+
+    .stopc_desc {
+        font-size: 2vh;
+    }
+
+    .cost {
+        font-size: 2vh;
     }
 }
 
@@ -28,3 +459,188 @@
     .game_comics_admin_card {
         width: 100%;
     }
+}
+
+.game_comics_admin_table {
+    display: block;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 6%;
+    width: 100%;
+}
+
+.game_comics_admin_card {
+    display: block;
+    border: 3px solid #ff4f00;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    margin: 10px;
+    height: 60vh;
+}
+
+.game_comics_admin_desc {
+    position: relative;
+    padding: 20px;
+}
+
+.game_comics_admin_name {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Underdog', cursive;
+    line-height: 120%;
+    position: relative;
+}
+
+.game_comics_admin_image {
+    position: relative;
+    height: 35vh;
+}
+
+    .game_comics_admin_image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+    }
+
+.admin_event {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Underdog', cursive;
+    line-height: 120%;
+    position: relative;
+}
+
+.game_comics_room {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Underdog', cursive;
+    line-height: 120%;
+    position: relative;
+    color: #ff4f00;
+}
+
+.book_author {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Underdog', cursive;
+    line-height: 120%;
+    position: relative;
+}
+
+.game_type {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Underdog', cursive;
+    line-height: 120%;
+    position: relative;
+}
+
+.room_price p {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Underdog', cursive;
+    line-height: 70%;
+    color: #ff4f00;
+}
+
+.room_desc p {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Underdog', cursive;
+    line-height: 80%;
+}
+
+.event_admin p {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Underdog', cursive;
+    line-height: 90%;
+    position: relative;
+    color: #ff4f00;
+}
+
+.event_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 20px;
+}
+
+.price_table {
+    display: block;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.tariff_card {
+    display: block;
+    border: 3px solid #ff4f00;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    height: 22vh;
+    width: 30%;
+    margin: 5px 1.25% 5px 1.25%;
+}
+
+.price_name {
+    text-align: center;
+    font-family: 'Underdog', cursive;
+    line-height: 150%;
+    color: #ff4f00;
+}
+
+    .price_name a {
+        color: #ff4f00;
+    }
+
+.cost {
+    text-align: center;
+    font-family: 'Underdog', cursive;
+    line-height: 100%;
+}
+
+.stopc_card {
+    display: block;
+    border: 3px solid #ff4f00;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    height: 30vh;
+    width: 22%;
+    margin: 5px 1.25% 5px 1.25%;
+}
+
+.stopc_desc {
+    font-family: 'Underdog', cursive;
+    line-height: 100%;
+    text-align: center;
+    color: #ffb400;
+}
+
+.type_card {
+    background-color: #ffb40040;
+    display: block;
+    border: 3px solid #ff4f00;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    height: 25vh;
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+
+.type_name {
+    text-align: center;
+    font-size: 8vw;
+    font-family: 'Underdog', cursive;
+    line-height: 150%;
+    color: #ff4f00;
+}

@@ -15,24 +15,45 @@ namespace GeekTime.Controllers
         {
             _consolegameManager = consolegameManager;
         }
-        public ViewResult ConsoleGamePage()
+        public async Task<IActionResult> ConsoleGamePage()
         {
-            var cg = _consolegameManager.consolegame;
+            var cg = await _consolegameManager.GetAll();
             return View(cg);
         }
 
-        [HttpPost]
-        public ActionResult CreateConsoleGame(string Name, int MaxPlayers, string WhatConsole, string Photo, string Rooms)
+        public IActionResult CreateConsoleGame()
         {
-            try
-            {
-                _consolegameManager.AddConsoleGame(new ConsoleGames(Name, MaxPlayers, WhatConsole, Photo, Rooms));
-                return RedirectToAction(nameof(ConsoleGamePage));
-            }
-            catch
-            {
-                return RedirectToAction(nameof(ConsoleGamePage));
-            }
+            return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateConsoleGame(ConsoleGame consoleGame)
+        {
+            await _consolegameManager.AddConsoleGame(consoleGame.Name, consoleGame.MaxPlayers, consoleGame.WhatConsole, consoleGame.Photo, consoleGame.RoomID);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteConsoleGame()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteConsoleGame(ConsoleGame consoleGame)
+        {
+            await _consolegameManager.DeleteConsoleGame(consoleGame.ID);
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpGet]
+        [Route("consoleGames")]
+        public Task<IList<ConsoleGame>> GetAll() => _consolegameManager.GetAll();
+
+        [HttpPut]
+        [Route("consoleGames")]
+        public Task AddConsoleGame([FromBody] ConsoleGame consoleGame) => _consolegameManager.AddConsoleGame(consoleGame.Name, consoleGame.MaxPlayers, consoleGame.WhatConsole, consoleGame.Photo, consoleGame.RoomID);
+
+        [HttpDelete]
+        [Route("consoleGames/{id}")]
+        public Task DeleteConsoleGame(int id) => _consolegameManager.DeleteConsoleGame(id);
     }
 }
