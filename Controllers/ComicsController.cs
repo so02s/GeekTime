@@ -26,7 +26,7 @@ namespace GeekTime.Controllers
         {
             try
             {
-                _comicsManager.AddComics(new Comics(Name, Genre, Room));
+                _comicsManager.AddComics(new Comic(Name, Genre, Room));
                 return RedirectToAction(nameof(ComicsPage));
             }
             catch

@@ -10,30 +10,54 @@ namespace GeekTime.Controllers
 {
     public class AdminController : Controller
     {
-        private IAdminManager _adminManager;
+        private readonly IAdminManager _adminManager;
         public AdminController(IAdminManager adminManager)
         {
             _adminManager = adminManager;
         }
-        public ViewResult AdminPage()
+
+        public async Task<IActionResult> AdminPage()
         {
-            var admin = _adminManager.admin;
-            return View(admin);
+            var admins = await _adminManager.GetAll();
+            return View(admins);
+        }
+
+
+        public IActionResult CreateAdmin()
+        {
+            return View();
         }
 
         [HttpPost]
-        public ActionResult CreateAdmin(string Name, string Events, string Image)
+        public async Task<IActionResult> DeleteAdmin(Admin admin)
         {
-            try
-            {
-                _adminManager.AddAdmin(new Admin(Name, Events, Image));
-                return RedirectToAction(nameof(AdminPage));
-            }
-            catch
-            {
-                return RedirectToAction(nameof(AdminPage));
-            }
+            await _adminManager.DeleteAdmin(admin.ID);
+            return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAdmin(Admin admin)
+        {
+            await _adminManager.AddAdmin(admin.Name, admin.Events, admin.Image);
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeleteAdmin()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        [Route("admins")]
+        public Task<IList<Admin>> GetAll() => _adminManager.GetAll();
+
+        [HttpPut]
+        [Route("admins")]
+        public Task AddAdmin([FromBody] Admin admin) => _adminManager.AddAdmin(admin.Name, admin.Events, admin.Image);
+
+        [HttpDelete]
+        [Route("admins/{id}")]
+        public Task DeleteAdmin(int id) => _adminManager.DeleteAdmin(id);
     }
 }
 

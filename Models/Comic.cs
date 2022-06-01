@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekTime.Models
 {
-    public class Comics
+    public class Comic
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
@@ -21,7 +21,7 @@ namespace GeekTime.Models
         [ForeignKey(nameof(Room))]
         public virtual Rooms Rooms { get; set; }
 
-        public Comics(string Name, string Genre, string Room)
+        public Comic(string Name, string Genre, string Room)
         {
             this.Name = Name;
             this.Genre = Genre;

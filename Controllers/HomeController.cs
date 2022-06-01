@@ -23,19 +23,6 @@ namespace GeekTime.Controllers
         }
 
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> CreateAdmin(Admin admin)
-        {
-            db.Admins.Add(admin);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
-
         public IActionResult For_admins()
         {
             return View();
@@ -45,27 +32,11 @@ namespace GeekTime.Controllers
         {
             return View(await db.Admins.ToListAsync());
         }
-        public IActionResult AdminPage()
-        {
-            return View();
-        }
-        public IActionResult CreateAdmin()
-        {
-            return View();
-        }
         public IActionResult ContactPage()
         {
             return View();
         }
         public IActionResult CreateContact()
-        {
-            return View();
-        }
-        public IActionResult EventsPage()
-        {
-            return View();
-        }
-        public IActionResult CreateEvent()
         {
             return View();
         }
@@ -78,9 +49,9 @@ namespace GeekTime.Controllers
             return View();
         }
 
-        public IActionResult Admins()
+        public async Task<IActionResult> Admins()
         {
-            return View();
+            return View(await db.Admins.ToListAsync());
         }
         public IActionResult Rooms()
         {
@@ -90,9 +61,9 @@ namespace GeekTime.Controllers
         {
             return View();
         }
-        public IActionResult Events()
+        public async Task<IActionResult> Events()
         {
-            return View();
+            return View(await db.Events.ToListAsync());
         }
         public IActionResult Games()
         {

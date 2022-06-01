@@ -1,0 +1,25 @@
+﻿@model GeekTime.Models.Event
+@{
+    ViewBag.Title = "Добавление ивента";
+}
+<form asp-action="createevent" asp-controller="event">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">Ивенты</label>
+        <input type="text" asp-for="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Describtion" class="control-label">Картинка</label>
+        <input type="text" asp-for="Describtion" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="AdminID" class="control-label">Админ</label>
+        <input type="number" asp-for="AdminID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

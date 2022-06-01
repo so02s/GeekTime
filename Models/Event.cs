@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekTime.Models
 {
-    public class Events
+    public class Event
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
@@ -17,17 +17,21 @@ namespace GeekTime.Models
         public string Image { get; set; }
         public string Describtion { get; set; }
         [Required]
-        public string AdminName { get; set; }
+        public int AdminID { get; set; }
 
-        [ForeignKey(nameof(AdminName))]
+        [ForeignKey(nameof(AdminID))]
         public virtual Admin Admin { get; set; }
 
-        public Events(string Name, string Image, string Describtion, string Admin)
+        public Event()
+        {
+
+        }
+        public Event(string Name, string Image, string Describtion, int Admin)
         {
             this.Name = Name;
             this.Image = Image;
             this.Describtion = Describtion;
-            this.AdminName = Admin;
+            this.AdminID = Admin;
         }
     }
 }

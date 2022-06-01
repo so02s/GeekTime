@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GeekTime.Manager;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GeekTime.Models
 {
     public class Admin
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
@@ -20,6 +14,9 @@ namespace GeekTime.Models
         public override string ToString()
         {
             return $"Админ: {Name}, он ведет: {Events}, Вот как он выглядит: {Image}";
+        }
+        public Admin()
+        {
         }
         public Admin(string Name, string Events, string Image)
         {

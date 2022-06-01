@@ -7,8 +7,8 @@ namespace GeekTime.Site_Data
     public class GeekTimeContext : DbContext
     {
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Event> Events { get; set; }
         /*
-        public DbSet<Events> Events { get; set; }
         public DbSet<BoardGame> BoardGames { get; set; }
         public DbSet<Comics> Comics { get; set; }
         public DbSet<ConsoleGames> ConsoleGames { get; set; }

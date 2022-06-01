@@ -1,26 +1,26 @@
-﻿@using GeekTime.Models
-@using GeekTime.Manager
-@model IEnumerable<Events>
+﻿@model IList<GeekTime.Models.Event>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>EventsPage</title>
+        <title>EventPage</title>
     </head>
     <body>
         <h1>Ивенты GeekTime:</h1>
         <table border="1" width="100%" cellpadding="5">
             <tr>
+                <th>Id</th>
                 <th>Должность</th>
                 <th>Имя</th>
                 <th>телефон</th>
                 <th>почта</th>
             </tr>
             @{
-                foreach (var item in EventsList.eventlist)
+                foreach (var item in Model)
                 {
                     <tr>
+                        <td>@item.ID</td>
                         <td>@item.Name</td>
                         <td>@item.Describtion</td>
                         <td>@item.Image</td>
@@ -29,12 +29,8 @@
                 }
             }
         </table>
-        @using (Html.BeginForm("CreateEvent", "Home"))
-        {
-            <div>
-                <input type="submit" value="Добавить эвент" />
-            </div>
-        }
+        <a asp-area="" asp-controller="Event" asp-action="CreateEvent">Добавить ивент</a>
+        <a asp-area="" asp-controller="Event" asp-action="DeleteEvent">Удалить ивент</a>
     </body>
 
 </html>

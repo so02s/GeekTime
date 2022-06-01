@@ -8,19 +8,19 @@ namespace GeekTime.Manager
 {
         public interface IComicsManager
         {
-            IEnumerable<Comics> сomics { get; }
-            IEnumerable<Comics> GetComicsByName(string name);
-            void AddComics(Comics comics);
+            IEnumerable<Comic> сomics { get; }
+            IEnumerable<Comic> GetComicsByName(string name);
+            void AddComics(Comic comics);
         }
 
     public class ComicsManager : IComicsManager
     {
-            public IEnumerable<Comics> сomics => ComicsList.сomics;
-            public void AddComics(Comics сomics)
+            public IEnumerable<Comic> сomics => ComicsList.сomics;
+            public void AddComics(Comic сomics)
             {
                 ComicsList.сomics.Add(сomics);
             }
-            public IEnumerable<Comics> GetComicsByName(string name)
+            public IEnumerable<Comic> GetComicsByName(string name)
             {
                 return ComicsList.сomics.Where(com => com.Name.ToLower() ==
                name.ToLower());
@@ -28,10 +28,10 @@ namespace GeekTime.Manager
         }
         public static class ComicsList
     {
-        public static List<Comics> сomics = new List<Comics>()
+        public static List<Comic> сomics = new List<Comic>()
         {
-         new Comics("Шерлок", "детектив", "комиксная"),
-         new Comics("Свинка По", "детское", "шелдон"),
+         new Comic("Шерлок", "детектив", "комиксная"),
+         new Comic("Свинка По", "детское", "шелдон"),
         };
     }
 }

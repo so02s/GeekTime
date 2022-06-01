@@ -49,6 +49,13 @@ namespace GeekTime
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                name: "event",
+                template: "{controller=EventController}/{action=EventPage}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
                 name: "contact",
                 template: "{controller=ContactController}/{action=ContactPage}");
             });

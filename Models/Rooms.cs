@@ -18,7 +18,7 @@ namespace GeekTime.Models
         public string Event { get; set; }
 
         [ForeignKey(nameof(Event))]
-        public virtual Events Events { get; set; }
+        public virtual Event Events { get; set; }
 
         [Required]
         public string Rate { get; set; }

@@ -1,6 +1,4 @@
-﻿@using GeekTime.Manager
-@using GeekTime.Models
-
+﻿<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,6 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            @using (Html.BeginForm("CreateAdmin", "Home"))
             {
                 <label>Имя:</label><br />
                 <input type="text" name="Name" /><br /><br />
@@ -28,8 +25,28 @@
             }
         </div>
     </div>
-    <div>
-        @Html.ActionLink("Вернуться к списку админов", "AdminPage", "Home")
-    </div>
 </body>
 </html>
+    -->
+
+@model GeekTime.Models.Admin
+@{
+    ViewBag.Title = "Добавление админа";
+}
+<form asp-action="createadmin" asp-controller="admin">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Events" class="control-label">Ивенты</label>
+        <input type="text" asp-for="Events" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">Картинка</label>
+        <input type="text" asp-for="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

@@ -1,6 +1,4 @@
-﻿@using GeekTime.Models
-@using GeekTime.Manager
-@model IEnumerable<Admin>
+﻿@model IList<GeekTime.Models.Admin>
 
 
 <!DOCTYPE html>
@@ -13,6 +11,7 @@
     <h1>Админы гиктайма:</h1>
     <table border="1" width="100%" cellpadding="5">
         <tr>
+            <th>Id</th>
             <th>Имя</th>
             <th>Ивент</th>
             <th>Фотка</th>
@@ -21,6 +20,7 @@
             foreach (var item in Model)
             {
                 <tr>
+                    <td>@item.ID</td>
                     <td>@item.Name</td>
                     <td>@item.Events</td>
                     <td>@item.Image</td>
@@ -28,6 +28,8 @@
             }
         }
     </table>
+    <a asp-area="" asp-controller="Admin" asp-action="CreateAdmin">Добавить админа</a>
+    <a asp-area="" asp-controller="Admin" asp-action="DeleteAdmin">Удалить админа</a>
 </body>
 </html>
 
