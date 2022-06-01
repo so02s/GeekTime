@@ -19,6 +19,5 @@ fileUploader.addEventListener('change', (event) => {
     console.log('files', files);
 
     const feedback = document.getElementById('feedback');
-    const msg = File ${ files[0].name } uploaded successfully!;
     feedback.innerHTML = msg;
 });
