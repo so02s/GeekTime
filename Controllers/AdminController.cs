@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using GeekTime.Manager;
 using GeekTime.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace GeekTime.Controllers
 {
@@ -36,16 +38,25 @@ namespace GeekTime.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAdmin(Admin admin)
+        public async Task<IActionResult> CreateAdmin(Admin admin, IFormFile uploadImage)
         {
-            await _adminManager.AddAdmin(admin.Name, admin.Events, admin.Image);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid && uploadImage != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    uploadImage.CopyTo(ms);
+                    var fileBytes = ms.ToArray();
+                    admin.Image = fileBytes;
+                }
+                await _adminManager.AddAdmin(admin.Name, admin.Events, admin.Image);
+                return RedirectToAction("Index");
+            }
+            else { return View(); }
         }
         public IActionResult DeleteAdmin()
         {
             return View();
         }
-
 
         [HttpGet]
         [Route("admins")]

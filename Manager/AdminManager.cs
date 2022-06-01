@@ -10,7 +10,7 @@ namespace GeekTime.Manager
     public interface IAdminManager
     {
         Task<IList<Admin>> GetAll();
-        Task AddAdmin(string Name, string Events, string Image);
+        Task AddAdmin(string Name, string Events, byte[] Image);
         Task DeleteAdmin(int id);
     }
 
@@ -22,7 +22,7 @@ namespace GeekTime.Manager
         {
             _context = context;
         }
-        public async Task AddAdmin(string _name, string _events, string _image)
+        public async Task AddAdmin(string _name, string _events, byte[] _image)
         {
             var admin = new Admin(_name, _events, _image);
             _context.Admins.Add(admin);

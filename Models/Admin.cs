@@ -9,8 +9,7 @@ namespace GeekTime.Models
         [Required]
         public string Name { get; set; }
         public string Events { get; set; }
-        [Required]
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         public override string ToString()
         {
             return $"Админ: {Name}, он ведет: {Events}, Вот как он выглядит: {Image}";
@@ -18,7 +17,7 @@ namespace GeekTime.Models
         public Admin()
         {
         }
-        public Admin(string Name, string Events, string Image)
+        public Admin(string Name, string Events, byte[] Image)
         {
             this.Name = Name;
             this.Events = Events;
